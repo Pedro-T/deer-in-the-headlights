@@ -1,0 +1,14 @@
+*.p8.png
+*.p8.rom
+*.png
+*.gif
+*.log
+*.bak
+*.old
+pico8
+
+config.txt
+pico8_html_template.html
+
+/build/
+/export/

@@ -7,7 +7,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cm0pq"]
 resource_local_to_scene = true
-size = Vector2(371.5, 20)
+size = Vector2(376, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fos0i"]
 resource_local_to_scene = true
@@ -36,7 +36,7 @@ tile_set = ExtResource("1_glv2v")
 position = Vector2(10, 111)
 
 [node name="CollisionShape2D" parent="Stage/WorldColliders/NoGoArea" index="0"]
-position = Vector2(180.25, 0)
+position = Vector2(178, 0)
 shape = SubResource("RectangleShape2D_cm0pq")
 
 [node name="NoGoArea2" parent="Stage/WorldColliders" instance=ExtResource("3_cm0pq")]

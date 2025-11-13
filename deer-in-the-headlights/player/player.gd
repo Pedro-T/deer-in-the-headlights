@@ -1,7 +1,7 @@
 class_name Player extends CharacterBody2D
 
 const MOVE_SPEED: float = 64.0 # pixels per second
-const STATE_DOWNGRADE_MAP: Dictionary[PlayerState, PlayerState] = {
+const STATE_DOWNGRADE_MAP: Dictionary = {
     PlayerState.RUN_NORTH: PlayerState.IDLE_NORTH,
     PlayerState.RUN_EAST: PlayerState.IDLE_EAST,
     PlayerState.RUN_WEST: PlayerState.IDLE_WEST,
@@ -21,9 +21,7 @@ func _physics_process(delta: float) -> void:
     if state != prev_state:
         _update_animation()
     velocity = velocity.normalized() * MOVE_SPEED * delta
-    var collision: KinematicCollision2D = move_and_collide(velocity)
-    if collision:
-        print("poof")
+    var _collision: KinematicCollision2D = move_and_collide(velocity)
 
 func _update_movement_state() -> void:
     velocity = Vector2.ZERO
@@ -42,7 +40,7 @@ func _update_movement_state() -> void:
     elif velocity.x != 0:
         state = PlayerState.RUN_EAST if velocity.x == 1 else PlayerState.RUN_WEST
     else:
-        state = STATE_DOWNGRADE_MAP.get(state, PlayerState.IDLE_SOUTH)
+        state = STATE_DOWNGRADE_MAP.get(state, state)
 
 func _update_animation() -> void:
     $AnimatedSprite2D.play(_state_name(state))

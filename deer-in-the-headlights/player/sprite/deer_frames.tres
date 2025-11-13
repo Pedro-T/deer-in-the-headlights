@@ -111,7 +111,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_8dh3q")
 }],
 "loop": true,
-"name": &"idle_east",
+"name": &"IDLE_EAST",
 "speed": 3.0
 }, {
 "frames": [{
@@ -125,7 +125,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_io2e6")
 }],
 "loop": true,
-"name": &"idle_north",
+"name": &"IDLE_NORTH",
 "speed": 3.0
 }, {
 "frames": [{
@@ -139,7 +139,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_66s81")
 }],
 "loop": true,
-"name": &"idle_south",
+"name": &"IDLE_SOUTH",
 "speed": 3.0
 }, {
 "frames": [{
@@ -153,7 +153,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_np283")
 }],
 "loop": true,
-"name": &"idle_west",
+"name": &"IDLE_WEST",
 "speed": 3.0
 }, {
 "frames": [{
@@ -167,8 +167,8 @@ animations = [{
 "texture": SubResource("AtlasTexture_dwf5y")
 }],
 "loop": true,
-"name": &"run_east",
-"speed": 3.0
+"name": &"RUN_EAST",
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -181,8 +181,8 @@ animations = [{
 "texture": SubResource("AtlasTexture_oniuy")
 }],
 "loop": true,
-"name": &"run_north",
-"speed": 3.0
+"name": &"RUN_NORTH",
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -195,8 +195,8 @@ animations = [{
 "texture": SubResource("AtlasTexture_mnji8")
 }],
 "loop": true,
-"name": &"run_south",
-"speed": 3.0
+"name": &"RUN_SOUTH",
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -209,6 +209,6 @@ animations = [{
 "texture": SubResource("AtlasTexture_3hbwu")
 }],
 "loop": true,
-"name": &"run_west",
-"speed": 3.0
+"name": &"RUN_WEST",
+"speed": 4.0
 }]

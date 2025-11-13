@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://6plrihs40fr2"]
+
+[ext_resource type="Script" uid="uid://cpo0r8dk0s8g4" path="res://vehicle/vehicle.gd" id="1_gh616"]
+[ext_resource type="Texture2D" uid="uid://csxiaw8dyfdyu" path="res://vehicle/sprites/car_hatch_red.png" id="2_jkabe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7aos"]
+
+[node name="Vehicle" type="Area2D"]
+script = ExtResource("1_gh616")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_w7aos")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_jkabe")

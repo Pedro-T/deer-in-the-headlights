@@ -1,8 +1,17 @@
-[gd_scene load_steps=4 format=4 uid="uid://bp61fiomhwsy8"]
+[gd_scene load_steps=7 format=4 uid="uid://bp61fiomhwsy8"]
 
 [ext_resource type="TileSet" uid="uid://c4yumyregri21" path="res://stage/tiles/stage_tiles.tres" id="1_glv2v"]
 [ext_resource type="Script" uid="uid://b8mu1jcyysejf" path="res://main.gd" id="1_uu6xs"]
+[ext_resource type="PackedScene" uid="uid://dpkybo5lwe4s1" path="res://stage/No Go Area.tscn" id="3_cm0pq"]
 [ext_resource type="PackedScene" uid="uid://d1po75xlbba11" path="res://player/Player.tscn" id="3_r0du0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cm0pq"]
+resource_local_to_scene = true
+size = Vector2(371.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fos0i"]
+resource_local_to_scene = true
+size = Vector2(312, 20)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_uu6xs")
@@ -23,6 +32,20 @@ tile_set = ExtResource("1_glv2v")
 
 [node name="WorldColliders" type="Node" parent="Stage"]
 
+[node name="NoGoArea" parent="Stage/WorldColliders" instance=ExtResource("3_cm0pq")]
+position = Vector2(10, 111)
+
+[node name="CollisionShape2D" parent="Stage/WorldColliders/NoGoArea" index="0"]
+position = Vector2(180.25, 0)
+shape = SubResource("RectangleShape2D_cm0pq")
+
+[node name="NoGoArea2" parent="Stage/WorldColliders" instance=ExtResource("3_cm0pq")]
+position = Vector2(10, 111)
+
+[node name="CollisionShape2D" parent="Stage/WorldColliders/NoGoArea2" index="0"]
+position = Vector2(602, 0)
+shape = SubResource("RectangleShape2D_fos0i")
+
 [node name="PlayerContainer" type="Node" parent="Stage"]
 
 [node name="Player" parent="Stage/PlayerContainer" instance=ExtResource("3_r0du0")]
@@ -37,3 +60,6 @@ offset_right = 768.0
 offset_bottom = 23.0
 text = "Time!"
 horizontal_alignment = 1
+
+[editable path="Stage/WorldColliders/NoGoArea"]
+[editable path="Stage/WorldColliders/NoGoArea2"]

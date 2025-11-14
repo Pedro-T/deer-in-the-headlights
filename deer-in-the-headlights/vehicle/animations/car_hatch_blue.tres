@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://cun4a5m44r73t"]
+
+[ext_resource type="Texture2D" uid="uid://dpxw8a6136ljh" path="res://vehicle/sprites/car_hatch_blue.png" id="1_t26fk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nchrj"]
+atlas = ExtResource("1_t26fk")
+region = Rect2(0, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2clkg"]
+atlas = ExtResource("1_t26fk")
+region = Rect2(128, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kopby"]
+atlas = ExtResource("1_t26fk")
+region = Rect2(256, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vid4r"]
+atlas = ExtResource("1_t26fk")
+region = Rect2(384, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1nbn"]
+atlas = ExtResource("1_t26fk")
+region = Rect2(512, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjuy8"]
+atlas = ExtResource("1_t26fk")
+region = Rect2(640, 0, 128, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nchrj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2clkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kopby")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vid4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1nbn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjuy8")
+}],
+"loop": true,
+"name": &"drive_wipers",
+"speed": 6.0
+}]

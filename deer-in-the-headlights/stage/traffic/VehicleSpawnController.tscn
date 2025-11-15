@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ck3w8a1qo2gwx"]
+
+[ext_resource type="Script" uid="uid://ddxmks6vqj8ky" path="res://stage/traffic/vehicle_spawn_controller.gd" id="1_k3vj5"]
+
+[node name="VehicleSpawnController" type="Node"]
+script = ExtResource("1_k3vj5")
+
+[node name="SpawnIntervalTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="SpawnIntervalTimer" to="." method="_on_spawn_interval_timer_timeout"]

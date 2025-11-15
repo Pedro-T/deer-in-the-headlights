@@ -5,17 +5,20 @@ class_name Vehicle extends Area2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
-@export var wipers_on: bool = true
 @export var speed: float = 200.00 # pixels per second
 @export var move_direction: int = 1 # 1 for right, 0 for left
+var animation_name: String = ""
 
-var used_animation: String = "drive_wipers" if wipers_on else "drive_day"
+func setup(_sprite_frames: SpriteFrames, _animation_name: String, _move_direction: int, _speed: float) -> void:
+	sprite_frames = _sprite_frames
+	animation_name = _animation_name
+	move_direction = _move_direction
+	speed = _speed
 
 func _ready() -> void:
-	if sprite:
-		sprite.sprite_frames = sprite_frames
-		collision_shape.shape.size = sprite.sprite_frames.get_frame_texture(used_animation, 0).get_size()
-	sprite.play(used_animation)
+	sprite.sprite_frames = sprite_frames
+	collision_shape.shape.size = sprite.sprite_frames.get_frame_texture(animation_name, 0).get_size()
+	sprite.play(animation_name)
 	sprite.flip_h = move_direction == 1
 
 func _process(delta: float) -> void:

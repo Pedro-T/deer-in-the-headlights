@@ -15,7 +15,6 @@ A short game about a deer trapped on the freeway trying to get out. Work in prog
 - The exit is not available from the start!
 
 ## Credits
+- This project leverages the Godot game engine v4.5.x. [License](https://godotengine.org/license/)
 - Deer sprite/animations adapted from AntumDeluge's rework of CalciumTrice's deer sprite under [CC-BY 3.0](https://creativecommons.org/licenses/by/3.0/). Original on [OpenGameArt](https://opengameart.org/node/107096)
-- All code, all **other** art by Pedro Teixeira. All rights reserved.
-
-Remainder TBD
+- All repository code and all art not listed above by Pedro Teixeira. All rights reserved.

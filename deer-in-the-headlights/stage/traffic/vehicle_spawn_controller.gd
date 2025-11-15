@@ -28,10 +28,12 @@ func _load_animations() -> void:
 
 func _on_spawn_interval_timer_timeout() -> void:
     nodes.pick_random().spawn(animations.pick_random(), VARIANT, 300.0)
-    print(get_child_count())
 
 func start() -> void:
     timer.wait_time = spawn_interval
     timer.start()
+
+func stop() -> void:
+    timer.stop()
 
 

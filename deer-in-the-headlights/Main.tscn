@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bp61fiomhwsy8"]
+[gd_scene load_steps=12 format=4 uid="uid://bp61fiomhwsy8"]
 
 [ext_resource type="TileSet" uid="uid://c4yumyregri21" path="res://stage/tiles/stage_tiles.tres" id="1_glv2v"]
 [ext_resource type="Script" uid="uid://b8mu1jcyysejf" path="res://main.gd" id="1_uu6xs"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://et1e86pvhcod" path="res://stage/gutter/VehicleGutter.tscn" id="6_lgr22"]
 [ext_resource type="PackedScene" uid="uid://ck3w8a1qo2gwx" path="res://stage/traffic/VehicleSpawnController.tscn" id="6_trn2v"]
 [ext_resource type="PackedScene" uid="uid://k8ejp0bpbay5" path="res://stage/traffic/VehicleSpawnNode.tscn" id="7_03owx"]
+[ext_resource type="PackedScene" uid="uid://crs4x04sgqv7i" path="res://overlay_screens/Screens.tscn" id="8_trn2v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cm0pq"]
 resource_local_to_scene = true
@@ -15,6 +16,9 @@ size = Vector2(376, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fos0i"]
 resource_local_to_scene = true
 size = Vector2(312, 20)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lgr22"]
+font_size = 24
 
 [node name="Main" type="Node"]
 script = ExtResource("1_uu6xs")
@@ -77,25 +81,27 @@ direction = 1
 [node name="Gutters" type="Node" parent="Stage/VehicleContainer"]
 
 [node name="VehicleGutterW" parent="Stage/VehicleContainer/Gutters" instance=ExtResource("6_lgr22")]
-position = Vector2(-192, 384)
-rotation = 1.5707964
+position = Vector2(-184, 224)
 
 [node name="VehicleGutterE" parent="Stage/VehicleContainer/Gutters" instance=ExtResource("6_lgr22")]
-position = Vector2(960, 384)
-rotation = -1.5707964
+position = Vector2(952, 544)
 
 [node name="PlayerContainer" type="Node" parent="Stage"]
 
 [node name="Player" parent="Stage/PlayerContainer" instance=ExtResource("3_r0du0")]
-position = Vector2(376, 392)
+position = Vector2(24, 32)
 
 [node name="ForegroundRenderOver" type="TileMapLayer" parent="Stage"]
 
-[node name="TimeLeftLabel" type="Label" parent="."]
+[node name="InfoLabel" type="Label" parent="."]
 offset_right = 768.0
-offset_bottom = 23.0
+offset_bottom = 64.0
 text = "Time!"
+label_settings = SubResource("LabelSettings_lgr22")
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Screens" parent="." instance=ExtResource("8_trn2v")]
 
 [editable path="Stage/WorldColliders/NoGoArea"]
 [editable path="Stage/WorldColliders/NoGoArea2"]

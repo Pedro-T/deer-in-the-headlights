@@ -4,9 +4,9 @@
 [ext_resource type="Script" uid="uid://b8mu1jcyysejf" path="res://main.gd" id="1_uu6xs"]
 [ext_resource type="PackedScene" uid="uid://dpkybo5lwe4s1" path="res://stage/No Go Area.tscn" id="3_cm0pq"]
 [ext_resource type="PackedScene" uid="uid://d1po75xlbba11" path="res://player/Player.tscn" id="3_r0du0"]
-[ext_resource type="PackedScene" uid="uid://6plrihs40fr2" path="res://vehicle/Vehicle.tscn" id="4_fos0i"]
-[ext_resource type="Texture2D" uid="uid://csxiaw8dyfdyu" path="res://vehicle/sprites/car_hatch_red.png" id="5_lgr22"]
-[ext_resource type="Texture2D" uid="uid://dpxw8a6136ljh" path="res://vehicle/sprites/car_hatch_blue.png" id="6_trn2v"]
+[ext_resource type="PackedScene" uid="uid://et1e86pvhcod" path="res://stage/gutter/VehicleGutter.tscn" id="6_lgr22"]
+[ext_resource type="PackedScene" uid="uid://ck3w8a1qo2gwx" path="res://stage/traffic/VehicleSpawnController.tscn" id="6_trn2v"]
+[ext_resource type="PackedScene" uid="uid://k8ejp0bpbay5" path="res://stage/traffic/VehicleSpawnNode.tscn" id="7_03owx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cm0pq"]
 resource_local_to_scene = true
@@ -51,19 +51,43 @@ shape = SubResource("RectangleShape2D_fos0i")
 
 [node name="VehicleContainer" type="Node" parent="Stage"]
 
-[node name="Vehicle" parent="Stage/VehicleContainer" instance=ExtResource("4_fos0i")]
-position = Vector2(80, 596)
-sprite_file = ExtResource("5_lgr22")
+[node name="VehicleSpawnController" parent="Stage/VehicleContainer" instance=ExtResource("6_trn2v")]
 
-[node name="Vehicle2" parent="Stage/VehicleContainer" instance=ExtResource("4_fos0i")]
-position = Vector2(925, 468)
-sprite_file = ExtResource("6_trn2v")
-move_direction = -1
+[node name="VehicleSpawnNode" parent="Stage/VehicleContainer/VehicleSpawnController" instance=ExtResource("7_03owx")]
+position = Vector2(832, 160)
+
+[node name="VehicleSpawnNode2" parent="Stage/VehicleContainer/VehicleSpawnController" instance=ExtResource("7_03owx")]
+position = Vector2(832, 224)
+
+[node name="VehicleSpawnNode3" parent="Stage/VehicleContainer/VehicleSpawnController" instance=ExtResource("7_03owx")]
+position = Vector2(832, 288)
+
+[node name="VehicleSpawnNode4" parent="Stage/VehicleContainer/VehicleSpawnController" instance=ExtResource("7_03owx")]
+position = Vector2(-64, 480)
+direction = 1
+
+[node name="VehicleSpawnNode5" parent="Stage/VehicleContainer/VehicleSpawnController" instance=ExtResource("7_03owx")]
+position = Vector2(-64, 544)
+direction = 1
+
+[node name="VehicleSpawnNode6" parent="Stage/VehicleContainer/VehicleSpawnController" instance=ExtResource("7_03owx")]
+position = Vector2(-64, 608)
+direction = 1
+
+[node name="Gutters" type="Node" parent="Stage/VehicleContainer"]
+
+[node name="VehicleGutterW" parent="Stage/VehicleContainer/Gutters" instance=ExtResource("6_lgr22")]
+position = Vector2(-192, 384)
+rotation = 1.5707964
+
+[node name="VehicleGutterE" parent="Stage/VehicleContainer/Gutters" instance=ExtResource("6_lgr22")]
+position = Vector2(960, 384)
+rotation = -1.5707964
 
 [node name="PlayerContainer" type="Node" parent="Stage"]
 
 [node name="Player" parent="Stage/PlayerContainer" instance=ExtResource("3_r0du0")]
-position = Vector2(377, 542)
+position = Vector2(376, 392)
 
 [node name="ForegroundRenderOver" type="TileMapLayer" parent="Stage"]
 
@@ -72,8 +96,6 @@ offset_right = 768.0
 offset_bottom = 23.0
 text = "Time!"
 horizontal_alignment = 1
-
-[connection signal="body_entered" from="Stage/VehicleContainer/Vehicle" to="Stage/VehicleContainer/Vehicle" method="_on_body_entered"]
 
 [editable path="Stage/WorldColliders/NoGoArea"]
 [editable path="Stage/WorldColliders/NoGoArea2"]

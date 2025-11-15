@@ -23,6 +23,7 @@ func start() -> void:
 	player.intro()
 	vehicle_spawner.start()
 	game_timer.start()
+	state = GameState.PLAY
 
 func game_over(_ending: GameEnding) -> void:
 	state = GameState.END

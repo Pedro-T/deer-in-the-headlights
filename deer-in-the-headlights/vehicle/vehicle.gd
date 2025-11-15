@@ -17,9 +17,15 @@ func setup(_sprite_frames: SpriteFrames, _animation_name: String, _move_directio
 
 func _ready() -> void:
 	sprite.sprite_frames = sprite_frames
+
+	if move_direction == 1: #right-side movement. Look for an R_ variant, or just flip the animation
+		var right_animation: String = "R_" + animation_name.substr(2)
+		if sprite.sprite_frames.has_animation(right_animation):
+			animation_name = right_animation
+		else:
+			sprite.flip_h = true
 	collision_shape.shape.size = sprite.sprite_frames.get_frame_texture(animation_name, 0).get_size()
 	sprite.play(animation_name)
-	sprite.flip_h = move_direction == 1
 
 func _process(delta: float) -> void:
 	position.x += speed * delta * move_direction

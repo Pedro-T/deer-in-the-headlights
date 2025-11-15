@@ -76,18 +76,18 @@ direction = 1
 
 [node name="Gutters" type="Node" parent="Stage/VehicleContainer"]
 
-[node name="VehicleGutter" parent="Stage/VehicleContainer/Gutters" instance=ExtResource("6_lgr22")]
+[node name="VehicleGutterW" parent="Stage/VehicleContainer/Gutters" instance=ExtResource("6_lgr22")]
 position = Vector2(-192, 384)
 rotation = 1.5707964
 
-[node name="VehicleGutter2" parent="Stage/VehicleContainer/Gutters" instance=ExtResource("6_lgr22")]
+[node name="VehicleGutterE" parent="Stage/VehicleContainer/Gutters" instance=ExtResource("6_lgr22")]
 position = Vector2(960, 384)
 rotation = -1.5707964
 
 [node name="PlayerContainer" type="Node" parent="Stage"]
 
 [node name="Player" parent="Stage/PlayerContainer" instance=ExtResource("3_r0du0")]
-position = Vector2(377, 542)
+position = Vector2(376, 392)
 
 [node name="ForegroundRenderOver" type="TileMapLayer" parent="Stage"]
 

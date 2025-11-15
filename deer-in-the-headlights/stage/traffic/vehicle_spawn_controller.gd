@@ -33,4 +33,7 @@ func start() -> void:
     timer.wait_time = spawn_interval
     timer.start()
 
+func stop() -> void:
+    timer.stop()
+
 

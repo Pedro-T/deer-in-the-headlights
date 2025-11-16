@@ -9,6 +9,7 @@ var player: Player
 
 func setup() -> void:
 	game_timer.timeout.connect(game_over.bind(GameEnding.SHOT))
+	screens.show_title()
 
 func _process(_delta: float) -> void:
 	match state:

@@ -94,6 +94,20 @@ Don't get hit!
 Escape within 20 seconds to avoid the hunter's bullet!"
 dialog_autowrap = true
 
+[node name="CreditsPopup" type="AcceptDialog" parent="TitleScreen"]
+oversampling_override = 1.0
+title = "Credits"
+initial_position = 1
+size = Vector2i(400, 314)
+visible = true
+dialog_text = "Godot Engine © Juan Linietsky, Ariel Manzur, Godot contributors.
+
+Deer sprite/animations adapted from AntumDeluge's rework of CalciumTrice's deer sprite under CC-BY 3.0
+https://opengameart.org/node/107096
+
+All gameplay code and other art by Pedro Teixeira"
+dialog_autowrap = true
+
 [connection signal="pressed" from="GameOverScreen/RestartButton" to="." method="_on_title_return_button_pressed"]
 [connection signal="pressed" from="TitleScreen/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="TitleScreen/InstructionsButton" to="." method="_on_instructions_button_pressed"]

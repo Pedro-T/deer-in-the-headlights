@@ -10,14 +10,11 @@ func hide() -> void:
     $GameOverScreen.visible = false
     $TitleScreen.visible = false
 
-
-
-
 func show_instructions() -> void:
     $TitleScreen/InstructionsPopup.popup()
 
 func show_credits() -> void:
-    pass
+    $TitleScreen/CreditsPopup.popup()
 
 
 # button handlers

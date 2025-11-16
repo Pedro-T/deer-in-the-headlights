@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://bp61fiomhwsy8"]
+[gd_scene load_steps=14 format=4 uid="uid://bp61fiomhwsy8"]
 
 [ext_resource type="TileSet" uid="uid://c4yumyregri21" path="res://stage/tiles/stage_tiles.tres" id="1_glv2v"]
 [ext_resource type="Script" uid="uid://b8mu1jcyysejf" path="res://main.gd" id="1_uu6xs"]
 [ext_resource type="PackedScene" uid="uid://dpkybo5lwe4s1" path="res://stage/No Go Area.tscn" id="3_cm0pq"]
 [ext_resource type="PackedScene" uid="uid://d1po75xlbba11" path="res://player/Player.tscn" id="3_r0du0"]
+[ext_resource type="Texture2D" uid="uid://cq618thcflnhw" path="res://stage/detail_background/pine_tree.png" id="3_wkp8b"]
+[ext_resource type="Texture2D" uid="uid://crqlae4p2dfho" path="res://stage/detail_background/grass_tuft.png" id="4_20pc6"]
 [ext_resource type="PackedScene" uid="uid://et1e86pvhcod" path="res://stage/gutter/VehicleGutter.tscn" id="6_lgr22"]
 [ext_resource type="PackedScene" uid="uid://ck3w8a1qo2gwx" path="res://stage/traffic/VehicleSpawnController.tscn" id="6_trn2v"]
 [ext_resource type="PackedScene" uid="uid://k8ejp0bpbay5" path="res://stage/traffic/VehicleSpawnNode.tscn" id="7_03owx"]
@@ -32,6 +34,165 @@ one_shot = true
 [node name="Base" type="TileMapLayer" parent="Stage"]
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAIAAAABAAAAAAAAAAIAAAACAAAAAAAAAAIAAAADAAAAAAAAAAIAAAAEAAAAAAAAAAIAAAAFAAAAAAAAAAIAAAAGAAAAAAAAAAIAAAAHAAAAAAAAAAIAAAAIAAAAAAAAAAIAAAAJAAAAAAAAAAIAAAAKAAAAAAAAAAIAAAALAAAAAAAAAAIAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAACAAEAABAFAAEAAAABAAAAAAAGAAEAAAABAAAAAAAHAAEAAAACAAEAAAAIAAEAAAAAAAAAAAAJAAEAAAAAAAAAAAAKAAEAAAAAAAAAAAALAAEAAAAAAAAAAAAAAAIAAAAAAAEAAAABAAIAAAAAAAEAAAACAAIAAAAAAAEAAAADAAIAAAAAAAEAAAAEAAIAAAAAAAEAAAAFAAIAAAAAAAEAAAAGAAIAAAAAAAEAAAAHAAIAAAAAAAEAAAAIAAIAAAAAAAEAAAAJAAIAAAAAAAEAAAAKAAIAAAAAAAEAAAALAAIAAAAAAAEAAAALAAMAAAABAAEAAAAKAAMAAAABAAEAAAAJAAMAAAABAAEAAAAIAAMAAAABAAEAAAAHAAMAAAABAAEAAAAGAAMAAAABAAEAAAAFAAMAAAABAAEAAAAEAAMAAAABAAEAAAADAAMAAAABAAEAAAACAAMAAAABAAEAAAABAAMAAAABAAEAAAAAAAMAAAABAAEAAAAAAAQAAAAAAAEAACABAAQAAAAAAAEAACACAAQAAAAAAAEAACADAAQAAAAAAAEAACAEAAQAAAAAAAEAACAFAAQAAAAAAAEAACAGAAQAAAAAAAEAACAHAAQAAAAAAAEAACAIAAQAAAAAAAEAACAJAAQAAAAAAAEAACAKAAQAAAAAAAEAACALAAQAAAAAAAEAACAAAAUAAAAAAAAAACABAAUAAAAAAAAAACACAAUAAAAAAAAAACADAAUAAAAAAAAAACAEAAUAAAAAAAAAACAFAAUAAAAAAAAAACAGAAUAAAAAAAAAACAHAAUAAAAAAAAAACAIAAUAAAAAAAAAACAJAAUAAAAAAAAAACAKAAUAAAAAAAAAACALAAUAAAAAAAAAACAAAAYAAAAAAAAAAAABAAYAAAAAAAAAAAACAAYAAAAAAAAAAAADAAYAAAAAAAAAAAAEAAYAAAAAAAAAAAAFAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAHAAYAAAAAAAAAAAAIAAYAAAAAAAAAAAAJAAYAAAAAAAAAAAAKAAYAAAAAAAAAAAALAAYAAAAAAAAAAAAAAAcAAAAAAAEAAAABAAcAAAAAAAEAAAACAAcAAAAAAAEAAAADAAcAAAAAAAEAAAAEAAcAAAAAAAEAAAAFAAcAAAAAAAEAAAAGAAcAAAAAAAEAAAAHAAcAAAAAAAEAAAAIAAcAAAAAAAEAAAAJAAcAAAAAAAEAAAAKAAcAAAAAAAEAAAALAAcAAAAAAAEAAAAAAAgAAAABAAEAAAABAAgAAAABAAEAAAACAAgAAAABAAEAAAADAAgAAAABAAEAAAAEAAgAAAABAAEAAAAFAAgAAAABAAEAAAAGAAgAAAABAAEAAAAHAAgAAAABAAEAAAAIAAgAAAABAAEAAAAJAAgAAAABAAEAAAAKAAgAAAABAAEAAAALAAgAAAABAAEAAAALAAkAAAAAAAEAACAKAAkAAAAAAAEAACAJAAkAAAAAAAEAACAIAAkAAAAAAAEAACAHAAkAAAAAAAEAACAGAAkAAAAAAAEAACAFAAkAAAAAAAEAACAEAAkAAAAAAAEAACADAAkAAAAAAAEAACACAAkAAAAAAAEAACABAAkAAAAAAAEAACAAAAkAAAAAAAEAACAAAAoAAAAAAAAAACABAAoAAAAAAAAAACACAAoAAAAAAAAAACADAAoAAAAAAAAAACAEAAoAAAAAAAAAACAFAAoAAAAAAAAAACAGAAoAAAAAAAAAACAHAAoAAAAAAAAAACAIAAoAAAAAAAAAACAJAAoAAAAAAAAAACAKAAoAAAAAAAAAACALAAoAAAAAAAAAACAAAAsAAAAAAAIAAAABAAsAAAAAAAIAAAACAAsAAAAAAAIAAAADAAsAAAAAAAIAAAAEAAsAAAAAAAIAAAAFAAsAAAAAAAIAAAAGAAsAAAAAAAIAAAAHAAsAAAAAAAIAAAAIAAsAAAAAAAIAAAAJAAsAAAAAAAIAAAAKAAsAAAAAAAIAAAALAAsAAAAAAAIAAAA=")
 tile_set = ExtResource("1_glv2v")
+
+[node name="BackgroundDetails" type="Node2D" parent="Stage"]
+y_sort_enabled = true
+
+[node name="PineTree" type="Sprite2D" parent="Stage/BackgroundDetails"]
+y_sort_enabled = true
+position = Vector2(96, 48)
+texture = ExtResource("3_wkp8b")
+
+[node name="PineTree7" type="Sprite2D" parent="Stage/BackgroundDetails"]
+y_sort_enabled = true
+position = Vector2(120, 72)
+texture = ExtResource("3_wkp8b")
+
+[node name="PineTree8" type="Sprite2D" parent="Stage/BackgroundDetails"]
+y_sort_enabled = true
+position = Vector2(32, 64)
+texture = ExtResource("3_wkp8b")
+
+[node name="PineTree9" type="Sprite2D" parent="Stage/BackgroundDetails"]
+y_sort_enabled = true
+position = Vector2(168, 32)
+texture = ExtResource("3_wkp8b")
+
+[node name="PineTree10" type="Sprite2D" parent="Stage/BackgroundDetails"]
+y_sort_enabled = true
+position = Vector2(264, 40)
+texture = ExtResource("3_wkp8b")
+
+[node name="PineTree11" type="Sprite2D" parent="Stage/BackgroundDetails"]
+y_sort_enabled = true
+position = Vector2(472, 8)
+texture = ExtResource("3_wkp8b")
+
+[node name="PineTree12" type="Sprite2D" parent="Stage/BackgroundDetails"]
+y_sort_enabled = true
+position = Vector2(424, -16)
+texture = ExtResource("3_wkp8b")
+
+[node name="PineTree13" type="Sprite2D" parent="Stage/BackgroundDetails"]
+y_sort_enabled = true
+position = Vector2(560, 64)
+texture = ExtResource("3_wkp8b")
+
+[node name="PineTree14" type="Sprite2D" parent="Stage/BackgroundDetails"]
+y_sort_enabled = true
+position = Vector2(728, 72)
+texture = ExtResource("3_wkp8b")
+
+[node name="PineTree15" type="Sprite2D" parent="Stage/BackgroundDetails"]
+y_sort_enabled = true
+position = Vector2(648, 48)
+texture = ExtResource("3_wkp8b")
+
+[node name="PineTree16" type="Sprite2D" parent="Stage/BackgroundDetails"]
+y_sort_enabled = true
+position = Vector2(584, 32)
+texture = ExtResource("3_wkp8b")
+
+[node name="PineTree17" type="Sprite2D" parent="Stage/BackgroundDetails"]
+y_sort_enabled = true
+position = Vector2(536, 16)
+texture = ExtResource("3_wkp8b")
+
+[node name="PineTree18" type="Sprite2D" parent="Stage/BackgroundDetails"]
+y_sort_enabled = true
+position = Vector2(696, 24)
+texture = ExtResource("3_wkp8b")
+
+[node name="PineTree19" type="Sprite2D" parent="Stage/BackgroundDetails"]
+y_sort_enabled = true
+position = Vector2(744, 24)
+texture = ExtResource("3_wkp8b")
+
+[node name="PineTree20" type="Sprite2D" parent="Stage/BackgroundDetails"]
+y_sort_enabled = true
+position = Vector2(624, -8)
+texture = ExtResource("3_wkp8b")
+
+[node name="PineTree21" type="Sprite2D" parent="Stage/BackgroundDetails"]
+y_sort_enabled = true
+position = Vector2(296, 0)
+texture = ExtResource("3_wkp8b")
+
+[node name="PineTree22" type="Sprite2D" parent="Stage/BackgroundDetails"]
+y_sort_enabled = true
+position = Vector2(224, 16)
+texture = ExtResource("3_wkp8b")
+
+[node name="PineTree23" type="Sprite2D" parent="Stage/BackgroundDetails"]
+y_sort_enabled = true
+position = Vector2(112, 8)
+texture = ExtResource("3_wkp8b")
+
+[node name="PineTree24" type="Sprite2D" parent="Stage/BackgroundDetails"]
+y_sort_enabled = true
+position = Vector2(56, 0)
+texture = ExtResource("3_wkp8b")
+
+[node name="GrassTuft" type="Sprite2D" parent="Stage/BackgroundDetails"]
+y_sort_enabled = true
+position = Vector2(144, 88)
+texture = ExtResource("4_20pc6")
+
+[node name="GrassTuft2" type="Sprite2D" parent="Stage/BackgroundDetails"]
+y_sort_enabled = true
+position = Vector2(576, 104)
+texture = ExtResource("4_20pc6")
+
+[node name="GrassTuft5" type="Sprite2D" parent="Stage/BackgroundDetails"]
+y_sort_enabled = true
+position = Vector2(264, 80)
+texture = ExtResource("4_20pc6")
+
+[node name="GrassTuft6" type="Sprite2D" parent="Stage/BackgroundDetails"]
+y_sort_enabled = true
+position = Vector2(168, 80)
+texture = ExtResource("4_20pc6")
+
+[node name="GrassTuft7" type="Sprite2D" parent="Stage/BackgroundDetails"]
+y_sort_enabled = true
+position = Vector2(64, 96)
+texture = ExtResource("4_20pc6")
+flip_h = true
+
+[node name="GrassTuft3" type="Sprite2D" parent="Stage/BackgroundDetails"]
+y_sort_enabled = true
+position = Vector2(440, 64)
+texture = ExtResource("4_20pc6")
+
+[node name="GrassTuft4" type="Sprite2D" parent="Stage/BackgroundDetails"]
+y_sort_enabled = true
+position = Vector2(240, 104)
+texture = ExtResource("4_20pc6")
+
+[node name="PineTree2" type="Sprite2D" parent="Stage/BackgroundDetails"]
+y_sort_enabled = true
+position = Vector2(328, 32)
+texture = ExtResource("3_wkp8b")
+
+[node name="PineTree3" type="Sprite2D" parent="Stage/BackgroundDetails"]
+y_sort_enabled = true
+position = Vector2(528, 72)
+texture = ExtResource("3_wkp8b")
+
+[node name="PineTree6" type="Sprite2D" parent="Stage/BackgroundDetails"]
+y_sort_enabled = true
+position = Vector2(616, 64)
+texture = ExtResource("3_wkp8b")
+
+[node name="PineTree4" type="Sprite2D" parent="Stage/BackgroundDetails"]
+y_sort_enabled = true
+position = Vector2(680, 72)
+texture = ExtResource("3_wkp8b")
+
+[node name="PineTree5" type="Sprite2D" parent="Stage/BackgroundDetails"]
+y_sort_enabled = true
+position = Vector2(216, 64)
+texture = ExtResource("3_wkp8b")
 
 [node name="RoadDetail" type="TileMapLayer" parent="Stage"]
 tile_map_data = PackedByteArray("AAAAAAEAAAAEAAAAAAABAAEAAAAEAAAAAAACAAEAAAAEAAAAAAADAAEAAAAEAAAAAAAEAAEAAAADAAAAABAFAAEAAAACAAAAAAAGAAEAAAACAAAAAAAHAAEAAAADAAAAAAAIAAEAAAAEAAAAAAAJAAEAAAAEAAAAAAAKAAEAAAAEAAAAAAALAAEAAAAEAAAAAAA=")

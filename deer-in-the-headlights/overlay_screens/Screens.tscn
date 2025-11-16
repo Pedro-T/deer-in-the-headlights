@@ -98,12 +98,15 @@ dialog_autowrap = true
 oversampling_override = 1.0
 title = "Credits"
 initial_position = 1
-size = Vector2i(400, 314)
+size = Vector2i(500, 340)
 visible = true
 dialog_text = "Godot Engine © Juan Linietsky, Ariel Manzur, Godot contributors.
 
 Deer sprite/animations adapted from AntumDeluge's rework of CalciumTrice's deer sprite under CC-BY 3.0
 https://opengameart.org/node/107096
+
+Pine tree sprite by isaiah658 released under CC0
+https://opengameart.org/content/pine-tree-16x16
 
 All gameplay code and other art by Pedro Teixeira"
 dialog_autowrap = true

@@ -80,6 +80,20 @@ offset_bottom = 256.0
 text = "A short game about a deer trying to escape its fate"
 vertical_alignment = 1
 
+[node name="InstructionsPopup" type="AcceptDialog" parent="TitleScreen"]
+oversampling_override = 1.0
+title = "Instructions"
+initial_position = 1
+size = Vector2i(400, 314)
+dialog_text = "Guide the deer across the highway while avoiding traffic.  Be wary of the hunter. He's a very poor shot, but will eventually get you.
+
+Move using WASD or the arrow keys.
+
+Don't get hit!
+
+Escape within 20 seconds to avoid the hunter's bullet!"
+dialog_autowrap = true
+
 [connection signal="pressed" from="GameOverScreen/RestartButton" to="." method="_on_title_return_button_pressed"]
 [connection signal="pressed" from="TitleScreen/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="TitleScreen/InstructionsButton" to="." method="_on_instructions_button_pressed"]

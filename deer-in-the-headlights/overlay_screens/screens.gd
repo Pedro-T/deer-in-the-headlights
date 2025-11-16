@@ -14,7 +14,7 @@ func hide() -> void:
 
 
 func show_instructions() -> void:
-    pass
+    $TitleScreen/InstructionsPopup.popup()
 
 func show_credits() -> void:
     pass

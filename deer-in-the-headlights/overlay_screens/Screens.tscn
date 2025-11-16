@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://crs4x04sgqv7i"]
+[gd_scene load_steps=3 format=3 uid="uid://crs4x04sgqv7i"]
 
 [ext_resource type="Script" uid="uid://cn0fgfhycc8vo" path="res://overlay_screens/screens.gd" id="1_iq8hk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_iq8hk"]
+font_size = 32
 
 [node name="Screens" type="Node"]
 script = ExtResource("1_iq8hk")
@@ -24,7 +27,7 @@ You Lost!
 Try again?"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="GameOverScreen"]
+[node name="RestartButton" type="Button" parent="GameOverScreen"]
 offset_left = 320.0
 offset_top = 336.0
 offset_right = 448.0
@@ -32,6 +35,52 @@ offset_bottom = 367.0
 text = "Return to Title"
 
 [node name="TitleScreen" type="Node2D" parent="."]
-visible = false
 
-[connection signal="pressed" from="GameOverScreen/Button" to="." method="_on_title_return_button_pressed"]
+[node name="ColorRect" type="ColorRect" parent="TitleScreen"]
+offset_right = 768.0
+offset_bottom = 768.0
+color = Color(0, 0, 0, 1)
+
+[node name="TitleLabel" type="Label" parent="TitleScreen"]
+offset_left = 192.0
+offset_top = 128.0
+offset_right = 576.0
+offset_bottom = 192.0
+text = "Deer in the Headlights"
+label_settings = SubResource("LabelSettings_iq8hk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="TitleScreen"]
+offset_left = 320.0
+offset_top = 320.0
+offset_right = 448.0
+offset_bottom = 368.0
+text = "Start Game"
+
+[node name="InstructionsButton" type="Button" parent="TitleScreen"]
+offset_left = 320.0
+offset_top = 384.0
+offset_right = 448.0
+offset_bottom = 432.0
+text = "How To Play"
+
+[node name="CreditsButton" type="Button" parent="TitleScreen"]
+offset_left = 320.0
+offset_top = 448.0
+offset_right = 448.0
+offset_bottom = 496.0
+text = "Credits"
+
+[node name="SubTitleLabel" type="Label" parent="TitleScreen"]
+offset_left = 192.0
+offset_top = 192.0
+offset_right = 576.0
+offset_bottom = 256.0
+text = "A short game about a deer trying to escape its fate"
+vertical_alignment = 1
+
+[connection signal="pressed" from="GameOverScreen/RestartButton" to="." method="_on_title_return_button_pressed"]
+[connection signal="pressed" from="TitleScreen/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="TitleScreen/InstructionsButton" to="." method="_on_instructions_button_pressed"]
+[connection signal="pressed" from="TitleScreen/CreditsButton" to="." method="_on_credits_button_pressed"]

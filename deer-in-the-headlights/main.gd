@@ -7,5 +7,4 @@ func _ready() -> void:
     GameManager.screens = $Screens
     GameManager.player = $Stage/PlayerContainer/Player
     GameManager.setup()
-    GameManager.start()
 

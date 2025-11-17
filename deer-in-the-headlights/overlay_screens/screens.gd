@@ -4,11 +4,13 @@ func show_game_over(_ending: GameManager.GameEnding) -> void:
     $GameOverScreen.visible = true
 
 func show_title() -> void:
+    $TitleScreen.play_animation()
     $TitleScreen.visible = true
 
 func hide() -> void:
     $GameOverScreen.visible = false
     $TitleScreen.visible = false
+    $TitleScreen.stop_animation()
 
 func show_instructions() -> void:
     $TitleScreen/InstructionsPopup.popup()

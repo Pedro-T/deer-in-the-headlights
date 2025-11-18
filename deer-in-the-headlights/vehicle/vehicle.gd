@@ -33,6 +33,8 @@ func _ready() -> void:
 	collision_shape.position = Vector2(0, (sprite_size.y - height) / 2)
 	sprite.play(animation_name)
 
+	position = position + Vector2(0, randi_range(-20, 0)) # shift the cars around a little so they're not perfectly in line every time
+
 func _process(delta: float) -> void:
 	position.x += speed * delta * move_direction
 

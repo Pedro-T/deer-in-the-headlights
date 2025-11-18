@@ -51,3 +51,4 @@ animations = [{
 "name": &"L_rain",
 "speed": 6.0
 }]
+metadata/hitbox_height = 40.0

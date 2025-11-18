@@ -214,6 +214,11 @@ position = Vector2(10, 111)
 position = Vector2(602, 0)
 shape = SubResource("RectangleShape2D_fos0i")
 
+[node name="PlayerContainer" type="Node" parent="Stage"]
+
+[node name="Player" parent="Stage/PlayerContainer" instance=ExtResource("3_r0du0")]
+position = Vector2(24, 32)
+
 [node name="VehicleContainer" type="Node" parent="Stage"]
 
 [node name="VehicleSpawnController" parent="Stage/VehicleContainer" instance=ExtResource("6_trn2v")]
@@ -246,11 +251,6 @@ position = Vector2(-184, 224)
 
 [node name="VehicleGutterE" parent="Stage/VehicleContainer/Gutters" instance=ExtResource("6_lgr22")]
 position = Vector2(952, 544)
-
-[node name="PlayerContainer" type="Node" parent="Stage"]
-
-[node name="Player" parent="Stage/PlayerContainer" instance=ExtResource("3_r0du0")]
-position = Vector2(24, 32)
 
 [node name="ForegroundRenderOver" type="TileMapLayer" parent="Stage"]
 

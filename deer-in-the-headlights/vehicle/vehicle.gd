@@ -24,7 +24,13 @@ func _ready() -> void:
 			animation_name = right_animation
 		else:
 			sprite.flip_h = true
-	collision_shape.shape.size = sprite.sprite_frames.get_frame_texture(animation_name, 0).get_size()
+
+	# use the height size from the resource metadata if available or just sprite y height
+	var sprite_size: Vector2 = sprite.sprite_frames.get_frame_texture(animation_name, 0).get_size()
+	var meta_height: Variant = sprite_frames.get_meta("hitbox_height", sprite_size.y)
+	var height: float = meta_height if meta_height is float else sprite_size.y
+	collision_shape.shape.size = Vector2(sprite_size.x, height)
+	collision_shape.position = Vector2(0, (sprite_size.y - height) / 2)
 	sprite.play(animation_name)
 
 func _process(delta: float) -> void:

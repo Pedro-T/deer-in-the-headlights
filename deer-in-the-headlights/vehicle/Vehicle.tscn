@@ -4,6 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://cq8ciqxel8e18" path="res://vehicle/animations/car_hatch_red.tres" id="2_gh616"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7aos"]
+resource_local_to_scene = true
 
 [node name="Vehicle" type="Area2D"]
 script = ExtResource("1_gh616")
@@ -15,3 +16,5 @@ shape = SubResource("RectangleShape2D_w7aos")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_gh616")
 animation = &"L_rain"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

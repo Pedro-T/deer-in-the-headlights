@@ -73,7 +73,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_ofd5l")
 }],
 "loop": true,
-"name": &"L_driving_wipers",
+"name": &"L_rain",
 "speed": 6.0
 }, {
 "frames": [{
@@ -96,6 +96,6 @@ animations = [{
 "texture": SubResource("AtlasTexture_8l7by")
 }],
 "loop": true,
-"name": &"R_driving_wipers",
+"name": &"R_rain",
 "speed": 6.0
 }]

@@ -133,9 +133,8 @@ frame_progress = 0.74413073
 [node name="TitleCar" type="AnimatedSprite2D" parent="TitleScreen"]
 position = Vector2(320, 664)
 sprite_frames = ExtResource("3_m2drv")
-animation = &"L_driving_wipers"
+animation = &"L_rain"
 autoplay = "L_driving_wipers"
-frame_progress = 0.274436
 flip_h = true
 
 [connection signal="pressed" from="GameOverScreen/RestartButton" to="." method="_on_title_return_button_pressed"]

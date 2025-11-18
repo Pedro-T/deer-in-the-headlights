@@ -48,6 +48,6 @@ animations = [{
 "texture": SubResource("AtlasTexture_c7j36")
 }],
 "loop": true,
-"name": &"L_driving_wipers",
+"name": &"L_rain",
 "speed": 6.0
 }]

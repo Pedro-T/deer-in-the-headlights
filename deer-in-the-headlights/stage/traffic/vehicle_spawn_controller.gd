@@ -5,7 +5,7 @@ class_name VehicleSpawnController extends Node
 @export var spawn_interval: float = 0.2
 
 const ANIMATIONS_PATH: String = "res://vehicle/animations"
-const VARIANT: String = "L_driving_wipers"
+const VARIANT: String = "L_rain"
 
 static var animations: Array[SpriteFrames] = []
 

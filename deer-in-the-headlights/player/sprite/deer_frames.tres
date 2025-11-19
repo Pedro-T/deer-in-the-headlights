@@ -112,7 +112,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"IDLE_EAST",
-"speed": 3.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -126,7 +126,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"IDLE_NORTH",
-"speed": 3.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -140,7 +140,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"IDLE_SOUTH",
-"speed": 3.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -154,7 +154,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"IDLE_WEST",
-"speed": 3.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -182,7 +182,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"RUN_NORTH",
-"speed": 4.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -196,7 +196,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"RUN_SOUTH",
-"speed": 4.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -210,5 +210,5 @@ animations = [{
 }],
 "loop": true,
 "name": &"RUN_WEST",
-"speed": 4.0
+"speed": 6.0
 }]

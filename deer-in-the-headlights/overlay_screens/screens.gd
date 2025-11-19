@@ -2,6 +2,7 @@ class_name Screens extends Node
 
 var title_scene: PackedScene = preload("res://overlay_screens/TitleScreen.tscn")
 var game_over_success_scene: PackedScene = preload("res://overlay_screens/GameOverScreenSuccess.tscn")
+var game_over_runover_scene: PackedScene = preload("res://overlay_screens/GameOverRoadkillScreen.tscn")
 var game_over_placeholder: PackedScene = preload("res://overlay_screens/GameOverScreen.tscn")
 
 func show_game_over(ending: GameManager.GameEnding) -> void:
@@ -10,7 +11,7 @@ func show_game_over(ending: GameManager.GameEnding) -> void:
         GameManager.GameEnding.ESCAPED:
             screen = game_over_success_scene.instantiate()
         GameManager.GameEnding.RUN_OVER:
-            screen = game_over_placeholder.instantiate()
+            screen = game_over_runover_scene.instantiate()
         GameManager.GameEnding.SHOT:
             screen = game_over_placeholder.instantiate()
     add_child(screen)

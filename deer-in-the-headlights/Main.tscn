@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://bp61fiomhwsy8"]
+[gd_scene load_steps=16 format=4 uid="uid://bp61fiomhwsy8"]
 
 [ext_resource type="TileSet" uid="uid://c4yumyregri21" path="res://stage/tiles/stage_tiles.tres" id="1_glv2v"]
 [ext_resource type="Script" uid="uid://b8mu1jcyysejf" path="res://main.gd" id="1_uu6xs"]
@@ -10,14 +10,18 @@
 [ext_resource type="PackedScene" uid="uid://ck3w8a1qo2gwx" path="res://stage/traffic/VehicleSpawnController.tscn" id="6_trn2v"]
 [ext_resource type="PackedScene" uid="uid://k8ejp0bpbay5" path="res://stage/traffic/VehicleSpawnNode.tscn" id="7_03owx"]
 [ext_resource type="PackedScene" uid="uid://crs4x04sgqv7i" path="res://overlay_screens/Screens.tscn" id="8_trn2v"]
+[ext_resource type="Script" uid="uid://cbohi6db1o0sh" path="res://game_success_trigger.gd" id="10_20pc6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cm0pq"]
 resource_local_to_scene = true
-size = Vector2(376, 20)
+size = Vector2(318, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fos0i"]
 resource_local_to_scene = true
 size = Vector2(312, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wkp8b"]
+size = Vector2(100, 20)
 
 [sub_resource type="LabelSettings" id="LabelSettings_lgr22"]
 font_size = 24
@@ -201,10 +205,10 @@ tile_set = ExtResource("1_glv2v")
 [node name="WorldColliders" type="Node" parent="Stage"]
 
 [node name="NoGoArea" parent="Stage/WorldColliders" instance=ExtResource("3_cm0pq")]
-position = Vector2(10, 111)
+position = Vector2(-48, 112)
 
 [node name="CollisionShape2D" parent="Stage/WorldColliders/NoGoArea" index="0"]
-position = Vector2(178, 0)
+position = Vector2(207, 0)
 shape = SubResource("RectangleShape2D_cm0pq")
 
 [node name="NoGoArea2" parent="Stage/WorldColliders" instance=ExtResource("3_cm0pq")]
@@ -254,6 +258,15 @@ position = Vector2(952, 544)
 
 [node name="ForegroundRenderOver" type="TileMapLayer" parent="Stage"]
 
+[node name="Triggers" type="Node" parent="Stage"]
+
+[node name="GameSuccessTrigger" type="Area2D" parent="Stage/Triggers"]
+position = Vector2(384, 88)
+script = ExtResource("10_20pc6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage/Triggers/GameSuccessTrigger"]
+shape = SubResource("RectangleShape2D_wkp8b")
+
 [node name="InfoLabel" type="Label" parent="."]
 offset_right = 768.0
 offset_bottom = 64.0
@@ -263,6 +276,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Screens" parent="." instance=ExtResource("8_trn2v")]
+
+[connection signal="body_entered" from="Stage/Triggers/GameSuccessTrigger" to="Stage/Triggers/GameSuccessTrigger" method="_on_body_entered"]
 
 [editable path="Stage/WorldColliders/NoGoArea"]
 [editable path="Stage/WorldColliders/NoGoArea2"]

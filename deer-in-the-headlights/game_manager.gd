@@ -6,6 +6,7 @@ var info_label: Label
 var state: GameState = GameState.PLAY
 var screens: Screens
 var player: Player
+var hunter: Hunter
 
 func setup() -> void:
     game_timer.timeout.connect(game_over.bind(GameEnding.SHOT))
@@ -22,6 +23,7 @@ func _update_timer_display() -> void:
 
 func start() -> void:
     player.intro()
+    hunter.assign_target(player)
     vehicle_spawner.start()
     game_timer.start()
     state = GameState.PLAY

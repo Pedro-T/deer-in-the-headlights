@@ -6,5 +6,6 @@ func _ready() -> void:
     GameManager.game_timer = $GameTimer
     GameManager.screens = $Screens
     GameManager.player = $Stage/PlayerContainer/Player
+    GameManager.hunter = $"Stage/Hunter-Bush"
     GameManager.setup()
 

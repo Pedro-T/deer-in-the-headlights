@@ -17,6 +17,8 @@ func _process(_delta: float) -> void:
 func fire() -> void:
     # todo play sound
     rifle.play("shoot")
+    await rifle.animation_finished
+    rifle.play("static")
 
 func assign_target(_target_entity: Player) -> void:
     target_entity = _target_entity

@@ -2,6 +2,7 @@ extends Node
 
 var vehicle_spawner: VehicleSpawnController
 var game_timer: Timer
+var firing_timer: Timer
 var info_label: Label
 var state: GameState = GameState.PLAY
 var screens: Screens
@@ -10,6 +11,7 @@ var hunter: Hunter
 
 func setup() -> void:
     game_timer.timeout.connect(game_over.bind(GameEnding.SHOT))
+    firing_timer.timeout.connect(trigger_shot)
     screens.show_title()
 
 func _process(_delta: float) -> void:
@@ -26,6 +28,7 @@ func start() -> void:
     hunter.assign_target(player)
     vehicle_spawner.start()
     game_timer.start()
+    firing_timer.start()
     state = GameState.PLAY
 
 func game_over(ending: GameEnding) -> void:
@@ -33,7 +36,12 @@ func game_over(ending: GameEnding) -> void:
     info_label.text = "ESCAPED" if ending == GameEnding.ESCAPED else "DEAD"
     _halt_spawns()
     game_timer.stop()
+    firing_timer.stop()
     screens.show_game_over(ending)
+
+func trigger_shot() -> void:
+    hunter.fire()
+    firing_timer.start()
 
 func _halt_spawns() -> void:
     vehicle_spawner.stop()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://caiapp8k6gcx8"]
+[gd_scene load_steps=14 format=3 uid="uid://caiapp8k6gcx8"]
 
 [ext_resource type="Script" uid="uid://m4qdl1oxoiqf" path="res://hunter/hunter.gd" id="1_w1lsk"]
 [ext_resource type="Texture2D" uid="uid://06nekbexte2s" path="res://hunter/sprites/rifle.png" id="2_8aa3p"]
 [ext_resource type="Texture2D" uid="uid://beuvbnyq0lynk" path="res://hunter/sprites/rifle_static.png" id="3_5rar5"]
+[ext_resource type="Texture2D" uid="uid://cu6vi17c5jt5s" path="res://hunter/sprites/bush.png" id="4_5rar5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_78b71"]
 atlas = ExtResource("2_8aa3p")
@@ -53,7 +54,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lto0q")
 }],
-"loop": true,
+"loop": false,
 "name": &"shoot",
 "speed": 6.0
 }, {
@@ -61,7 +62,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kjubh")
 }],
-"loop": true,
+"loop": false,
 "name": &"static",
 "speed": 1.0
 }]
@@ -73,9 +74,12 @@ script = ExtResource("1_w1lsk")
 
 [node name="Rifle" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_oxsqa")
-animation = &"static"
+animation = &"shoot"
 autoplay = "static"
 offset = Vector2(0, -16)
 
 [node name="Bush" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8aa3p")
+
+[node name="Bush2" type="Sprite2D" parent="."]
+texture = ExtResource("4_5rar5")

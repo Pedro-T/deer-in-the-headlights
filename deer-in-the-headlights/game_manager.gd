@@ -30,6 +30,7 @@ func game_over(ending: GameEnding) -> void:
     state = GameState.END
     info_label.text = "ESCAPED" if ending == GameEnding.ESCAPED else "DEAD"
     _halt_spawns()
+    game_timer.stop()
     screens.show_game_over(ending)
 
 func _halt_spawns() -> void:

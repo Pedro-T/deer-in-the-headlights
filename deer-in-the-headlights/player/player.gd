@@ -1,6 +1,6 @@
 class_name Player extends CharacterBody2D
 
-const MOVE_SPEED: float = 64.0 # pixels per second
+const MOVE_SPEED: float = 256.0 # pixels per second
 const SPAWN_POSITION: Vector2 = Vector2(376, 392)
 const STATE_DOWNGRADE_MAP: Dictionary = {
     PlayerState.RUN_NORTH: PlayerState.IDLE_NORTH,

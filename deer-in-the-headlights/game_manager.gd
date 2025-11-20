@@ -8,40 +8,42 @@ var screens: Screens
 var player: Player
 
 func setup() -> void:
-	game_timer.timeout.connect(game_over.bind(GameEnding.SHOT))
-	screens.show_title()
+    game_timer.timeout.connect(game_over.bind(GameEnding.SHOT))
+    screens.show_title()
 
 func _process(_delta: float) -> void:
-	match state:
-		GameState.PLAY:
-			_update_timer_display()
+    match state:
+        GameState.PLAY:
+            _update_timer_display()
 
 func _update_timer_display() -> void:
-	var time: int = floor(game_timer.time_left)
-	info_label.text = "%02d" % time
+    var time: int = floor(game_timer.time_left)
+    info_label.text = "%02d" % time
 
 func start() -> void:
-	player.intro()
-	vehicle_spawner.start()
-	game_timer.start()
-	state = GameState.PLAY
+    player.intro()
+    vehicle_spawner.start()
+    game_timer.start()
+    state = GameState.PLAY
 
-func game_over(_ending: GameEnding) -> void:
-	state = GameState.END
-	info_label.text = "DEAD"
-	_halt_spawns()
-	screens.show_game_over(_ending)
+func game_over(ending: GameEnding) -> void:
+    state = GameState.END
+    info_label.text = "ESCAPED" if ending == GameEnding.ESCAPED else "DEAD"
+    _halt_spawns()
+    game_timer.stop()
+    screens.show_game_over(ending)
 
 func _halt_spawns() -> void:
-	vehicle_spawner.stop()
+    vehicle_spawner.stop()
 
 enum GameEnding {
-	RUN_OVER,
-	SHOT
+    RUN_OVER,
+    SHOT,
+    ESCAPED
 }
 
 enum GameState {
-	PLAY,
-	INTRO,
-	END
+    PLAY,
+    INTRO,
+    END
 }

@@ -1,36 +1,36 @@
 class_name Screens extends Node
 
-func show_game_over(_ending: GameManager.GameEnding) -> void:
-    $GameOverScreen.visible = true
+var title_scene: PackedScene = preload("res://overlay_screens/TitleScreen.tscn")
+var game_over_success_scene: PackedScene = preload("res://overlay_screens/GameOverScreenSuccess.tscn")
+var game_over_runover_scene: PackedScene = preload("res://overlay_screens/GameOverRoadkillScreen.tscn")
+var game_over_hunted_scene: PackedScene = preload("res://overlay_screens/GameOverHuntedScreen.tscn")
+
+func show_game_over(ending: GameManager.GameEnding) -> void:
+    var screen: Node2D
+    match ending:
+        GameManager.GameEnding.ESCAPED:
+            screen = game_over_success_scene.instantiate()
+        GameManager.GameEnding.RUN_OVER:
+            screen = game_over_runover_scene.instantiate()
+        GameManager.GameEnding.SHOT:
+            screen = game_over_hunted_scene.instantiate()
+    add_child(screen)
+    screen.title_button.connect("pressed", reset_title)
 
 func show_title() -> void:
-    $TitleScreen.play_animation()
-    $TitleScreen.visible = true
+    var title: Node2D = title_scene.instantiate()
+    add_child(title)
+    title.start_button.connect("pressed", start_game)
+    title.play_animation()
 
 func hide() -> void:
-    $GameOverScreen.visible = false
-    $TitleScreen.visible = false
-    $TitleScreen.stop_animation()
+    for child in get_children():
+        child.queue_free()
 
-func show_instructions() -> void:
-    $TitleScreen/InstructionsPopup.popup()
-
-func show_credits() -> void:
-    $TitleScreen/CreditsPopup.popup()
-
-
-# button handlers
-func _on_credits_button_pressed() -> void:
-    show_credits()
-
-func _on_instructions_button_pressed() -> void:
-    show_instructions()
-
-func _on_start_button_pressed() -> void:
+func start_game() -> void:
     hide()
     GameManager.start()
 
-func _on_title_return_button_pressed() -> void:
+func reset_title() -> void:
     hide()
-    GameManager.start()
-
+    show_title()

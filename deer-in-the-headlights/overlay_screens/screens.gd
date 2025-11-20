@@ -3,7 +3,7 @@ class_name Screens extends Node
 var title_scene: PackedScene = preload("res://overlay_screens/TitleScreen.tscn")
 var game_over_success_scene: PackedScene = preload("res://overlay_screens/GameOverScreenSuccess.tscn")
 var game_over_runover_scene: PackedScene = preload("res://overlay_screens/GameOverRoadkillScreen.tscn")
-var game_over_placeholder: PackedScene = preload("res://overlay_screens/GameOverScreen.tscn")
+var game_over_hunted_scene: PackedScene = preload("res://overlay_screens/GameOverHuntedScreen.tscn")
 
 func show_game_over(ending: GameManager.GameEnding) -> void:
     var screen: Node2D
@@ -13,7 +13,7 @@ func show_game_over(ending: GameManager.GameEnding) -> void:
         GameManager.GameEnding.RUN_OVER:
             screen = game_over_runover_scene.instantiate()
         GameManager.GameEnding.SHOT:
-            screen = game_over_placeholder.instantiate()
+            screen = game_over_hunted_scene.instantiate()
     add_child(screen)
     screen.title_button.connect("pressed", reset_title)
 

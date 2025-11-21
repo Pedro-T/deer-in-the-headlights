@@ -15,7 +15,7 @@ func _process(_delta: float) -> void:
 
 
 func fire() -> void:
-    # todo play sound
+    $GunshotEffectPlayer.play()
     rifle.play("shoot")
     await rifle.animation_finished
     rifle.play("static")

@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://caiapp8k6gcx8"]
+[gd_scene load_steps=15 format=3 uid="uid://caiapp8k6gcx8"]
 
 [ext_resource type="Script" uid="uid://m4qdl1oxoiqf" path="res://hunter/hunter.gd" id="1_w1lsk"]
 [ext_resource type="Texture2D" uid="uid://06nekbexte2s" path="res://hunter/sprites/rifle.png" id="2_8aa3p"]
 [ext_resource type="Texture2D" uid="uid://beuvbnyq0lynk" path="res://hunter/sprites/rifle_static.png" id="3_5rar5"]
 [ext_resource type="Texture2D" uid="uid://cu6vi17c5jt5s" path="res://hunter/sprites/bush.png" id="4_5rar5"]
+[ext_resource type="AudioStream" uid="uid://q70t4vbm8kvj" path="res://hunter/sounds/fire.wav" id="5_78b71"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_78b71"]
 atlas = ExtResource("2_8aa3p")
@@ -83,3 +84,7 @@ sprite_frames = SubResource("SpriteFrames_8aa3p")
 
 [node name="Bush2" type="Sprite2D" parent="."]
 texture = ExtResource("4_5rar5")
+
+[node name="GunshotEffectPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_78b71")
+volume_db = -5.0

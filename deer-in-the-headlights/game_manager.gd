@@ -32,6 +32,8 @@ func start() -> void:
     state = GameState.PLAY
 
 func game_over(ending: GameEnding) -> void:
+    if state == GameState.END:
+        return
     state = GameState.END
     info_label.text = "ESCAPED" if ending == GameEnding.ESCAPED else "DEAD"
     _halt_spawns()

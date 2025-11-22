@@ -6,6 +6,8 @@ var game_over_runover_scene: PackedScene = preload("res://overlay_screens/GameOv
 var game_over_hunted_scene: PackedScene = preload("res://overlay_screens/GameOverHuntedScreen.tscn")
 
 func show_game_over(ending: GameManager.GameEnding) -> void:
+    $AnimationPlayer.play("mask_up")
+    await $AnimationPlayer.animation_finished
     var screen: Node2D
     match ending:
         GameManager.GameEnding.ESCAPED:
@@ -14,17 +16,18 @@ func show_game_over(ending: GameManager.GameEnding) -> void:
             screen = game_over_runover_scene.instantiate()
         GameManager.GameEnding.SHOT:
             screen = game_over_hunted_scene.instantiate()
-    add_child(screen)
+    $Container.add_child(screen)
     screen.title_button.connect("pressed", reset_title)
+    $AnimationPlayer.play("mask_down")
 
 func show_title() -> void:
     var title: Node2D = title_scene.instantiate()
-    add_child(title)
+    $Container.add_child(title)
     title.start_button.connect("pressed", start_game)
     title.play_animation()
 
 func hide() -> void:
-    for child in get_children():
+    for child in $Container.get_children():
         child.queue_free()
 
 func start_game() -> void:
@@ -34,3 +37,4 @@ func start_game() -> void:
 func reset_title() -> void:
     hide()
     show_title()
+    $AnimationPlayer.play("mask_down")

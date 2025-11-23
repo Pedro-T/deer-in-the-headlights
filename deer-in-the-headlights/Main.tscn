@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://bp61fiomhwsy8"]
+[gd_scene load_steps=25 format=4 uid="uid://bp61fiomhwsy8"]
 
 [ext_resource type="TileSet" uid="uid://c4yumyregri21" path="res://stage/tiles/stage_tiles.tres" id="1_glv2v"]
 [ext_resource type="Script" uid="uid://b8mu1jcyysejf" path="res://main.gd" id="1_uu6xs"]
@@ -24,6 +24,15 @@ size = Vector2(318, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fos0i"]
 resource_local_to_scene = true
 size = Vector2(312, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpfj3"]
+size = Vector2(768, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sc1dx"]
+size = Vector2(8, 520)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjvhd"]
+size = Vector2(8, 520)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wkp8b"]
 size = Vector2(100, 20)
@@ -67,6 +76,8 @@ tile_set = ExtResource("1_glv2v")
 
 [node name="NoGoArea" parent="Stage/WorldColliders" instance=ExtResource("3_cm0pq")]
 position = Vector2(-48, 112)
+collision_layer = 1
+collision_mask = 2
 
 [node name="CollisionShape2D" parent="Stage/WorldColliders/NoGoArea" index="0"]
 position = Vector2(207, 0)
@@ -74,6 +85,8 @@ shape = SubResource("RectangleShape2D_cm0pq")
 
 [node name="NoGoArea2" parent="Stage/WorldColliders" instance=ExtResource("3_cm0pq")]
 position = Vector2(10, 111)
+collision_layer = 1
+collision_mask = 2
 
 [node name="CollisionShape2D" parent="Stage/WorldColliders/NoGoArea2" index="0"]
 position = Vector2(602, 0)
@@ -120,6 +133,29 @@ position = Vector2(224, 328)
 
 [node name="BlockerSmall14" parent="Stage/WorldColliders" instance=ExtResource("4_fpfj3")]
 position = Vector2(32, 328)
+
+[node name="SouthBoundary" type="StaticBody2D" parent="Stage/WorldColliders"]
+position = Vector2(384, 648)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage/WorldColliders/SouthBoundary"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_fpfj3")
+
+[node name="WestBoundary" type="StaticBody2D" parent="Stage/WorldColliders"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage/WorldColliders/WestBoundary"]
+position = Vector2(-4, 380)
+shape = SubResource("RectangleShape2D_sc1dx")
+
+[node name="EastBoundary" type="StaticBody2D" parent="Stage/WorldColliders"]
+position = Vector2(768, 384)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage/WorldColliders/EastBoundary"]
+position = Vector2(4, -4)
+shape = SubResource("RectangleShape2D_kjvhd")
 
 [node name="PlayerContainer" type="Node" parent="Stage"]
 
@@ -437,6 +473,7 @@ texture = ExtResource("5_c6i3y")
 
 [node name="GameSuccessTrigger" type="Area2D" parent="Stage/Triggers"]
 position = Vector2(384, 88)
+collision_mask = 2
 script = ExtResource("10_20pc6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stage/Triggers/GameSuccessTrigger"]

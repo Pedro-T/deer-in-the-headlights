@@ -2,9 +2,10 @@ shader_type canvas_item;
 
 uniform vec4 u_ambient_color : source_color = vec4(0.05, 0.05, 0.1, 1.0);
 uniform float u_headlight_range = 400.0;
-uniform float u_headlight_width_factor = 0.2;
 uniform float u_headlight_intensity = 0.8;
+uniform float u_beam_height = 100.0;
 
+uniform sampler2D u_beam_mask : filter_linear; // your beam PNG
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
 
 #define MAX_CARS 60
@@ -24,23 +25,32 @@ void fragment() {
 
         vec2 relative_pos = current_pixel_pos - car_pos;
 
+        // rotate into car-local space
         mat2 rot_matrix = mat2(
             vec2(cos(car_rot), -sin(car_rot)),
             vec2(sin(car_rot), cos(car_rot))
         );
         vec2 rotated_pos = rot_matrix * relative_pos;
 
-        float compressed_y = rotated_pos.y / u_headlight_width_factor;
+        // normalize into beam texture UV space
+        vec2 beam_uv;
+        beam_uv.x = rotated_pos.x / u_headlight_range;                          // forward distance
+        beam_uv.y = rotated_pos.y / u_beam_height; // lateral spread
+        beam_uv = beam_uv * 0.5 + vec2(0.5); // shift into [0,1]
 
-        float directional_dist = length(vec2(rotated_pos.x, compressed_y));
+        // only sample inside beam texture bounds
+        if (beam_uv.x >= 0.0 && beam_uv.x <= 1.0 &&
+            beam_uv.y >= 0.0 && beam_uv.y <= 1.0 &&
+            rotated_pos.x > 0.0) {
 
-        if (rotated_pos.x > 0.0 && directional_dist < u_headlight_range) {
+            // sample beam mask (grayscale)
+            float beam_strength = texture(u_beam_mask, beam_uv).r;
 
-            float falloff = 1.0 - (directional_dist / u_headlight_range);
+            // optional distance falloff for realism
+            float falloff = 1.0 - (rotated_pos.x / u_headlight_range);
+            falloff = clamp(falloff, 0.0, 1.0);
 
-            float light_falloff = pow(falloff, 2.5);
-
-            total_light_contribution += light_falloff * u_headlight_intensity;
+            total_light_contribution += beam_strength * falloff * u_headlight_intensity;
         }
     }
 

@@ -8,5 +8,5 @@ func _ready() -> void:
     GameManager.screens = $Screens
     GameManager.player = $Stage/PlayerContainer/Player
     GameManager.hunter = $"Stage/Hunter-Bush"
+    GameManager.night_canvas = $Stage/Nighttime
     GameManager.setup()
-

@@ -28,10 +28,18 @@ vertical_alignment = 1
 
 [node name="StartButton" type="Button" parent="."]
 offset_left = 320.0
-offset_top = 316.0
+offset_top = 320.0
 offset_right = 448.0
-offset_bottom = 364.0
+offset_bottom = 368.0
 text = "Start Game"
+
+[node name="Mode_Button" type="CheckButton" parent="."]
+offset_left = 312.0
+offset_top = 256.0
+offset_right = 459.0
+offset_bottom = 304.0
+button_pressed = true
+text = "Night Mode"
 
 [node name="InstructionsButton" type="Button" parent="."]
 offset_left = 320.0
@@ -110,5 +118,6 @@ animation = &"L_rain"
 autoplay = "L_driving_wipers"
 flip_h = true
 
+[connection signal="toggled" from="Mode_Button" to="." method="_on_mode_button_toggled"]
 [connection signal="pressed" from="InstructionsButton" to="." method="_on_instructions_button_pressed"]
 [connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]

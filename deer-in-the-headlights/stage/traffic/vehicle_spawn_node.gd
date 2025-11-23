@@ -12,7 +12,8 @@ func spawn(sprite: SpriteFrames, variant: String, speed: float) -> void:
     vehicle.global_position = self.global_position
     vehicle.setup(sprite, variant, 1 if direction == SpawnDirection.RIGHT else -1, speed)
     add_sibling(vehicle)
-    _enter_cooldown(sprite.get_frame_texture(variant, 0).get_size().x / speed * 1.1)
+    vehicle.add_to_group("vehicles")
+    _enter_cooldown(sprite.get_frame_texture(variant, 0).get_size().x / speed * 1.7)
 
 func _enter_cooldown(time: float) -> void:
     timer.wait_time = time

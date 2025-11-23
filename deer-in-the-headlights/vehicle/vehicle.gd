@@ -28,7 +28,7 @@ func _ready() -> void:
 
 	# use the height size from the resource metadata if available or just sprite y height
 	var sprite_size: Vector2 = sprite.sprite_frames.get_frame_texture(animation_name, 0).get_size()
-	headlight_offset = sprite_size.x / 2 + 5
+	headlight_offset = sprite_size.x / 2 + 1
 	var meta_height: Variant = sprite_frames.get_meta("hitbox_height", sprite_size.y)
 	var height: float = meta_height if meta_height is float else sprite_size.y
 	collision_shape.shape.size = Vector2(sprite_size.x, height)

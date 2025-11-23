@@ -38,7 +38,7 @@ func _update_headlights() -> void:
         if car is not Vehicle:
             continue
         
-        var position: Vector2 = car.global_position
+        var position: Vector2 = car.global_position + Vector2(0, 10)
         var direction: int = car.move_direction
         var rotation: float = car.rotation
         if direction == -1:

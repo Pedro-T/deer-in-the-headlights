@@ -23,6 +23,5 @@ func _on_instructions_button_pressed() -> void:
 func _on_credits_button_pressed() -> void:
     $CreditsPopup.popup()
 
-
 func _on_mode_button_toggled(toggled_on: bool) -> void:
     GameManager.night_mode = toggled_on

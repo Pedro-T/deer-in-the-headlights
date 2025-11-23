@@ -54,7 +54,6 @@ func _update_headlights() -> void:
     shader_material.set_shader_parameter("u_car_data", car_positions)
 
 
-
 func _update_timer_display() -> void:
     var time: int = floor(game_timer.time_left)
     info_label.text = "%02d" % time

@@ -11,6 +11,7 @@ var hunter: Hunter
 var night_canvas: ColorRect
 var shader_material: ShaderMaterial
 var car_data: PackedVector3Array = []
+var night_mode: bool = true
 
 const MAX_CARS: int = 60 # for headlight calc
 
@@ -23,7 +24,8 @@ func _process(_delta: float) -> void:
     if not shader_material:
         shader_material = night_canvas.material as ShaderMaterial
     
-    _update_headlights()
+    if night_mode:
+        _update_headlights()
 
     match state:
         GameState.PLAY:
@@ -58,7 +60,7 @@ func _update_timer_display() -> void:
     info_label.text = "%02d" % time
 
 func start() -> void:
-    night_canvas.visible = true
+    night_canvas.visible = night_mode
     player.intro()
     hunter.assign_target(player)
     vehicle_spawner.start()

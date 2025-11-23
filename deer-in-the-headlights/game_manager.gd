@@ -43,7 +43,7 @@ func _update_headlights() -> void:
         var rotation: float = car.rotation
         if direction == -1:
             rotation += PI
-        var car_pos_rot: Vector3 = Vector3(position.x, position.y, rotation)
+        var car_pos_rot: Vector3 = Vector3(position.x + car.headlight_offset * direction, position.y, rotation)
         car_positions.append(car_pos_rot)
         if car_positions.size() >= MAX_CARS:
             break

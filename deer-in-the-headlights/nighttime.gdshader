@@ -1,8 +1,8 @@
 shader_type canvas_item;
 
 uniform vec4 u_ambient_color : source_color = vec4(0.05, 0.05, 0.1, 1.0);
-uniform float u_headlight_range = 300.0;
-uniform float u_headlight_width_factor = 0.5;
+uniform float u_headlight_range = 400.0;
+uniform float u_headlight_width_factor = 0.2;
 uniform float u_headlight_intensity = 0.8;
 
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
@@ -38,7 +38,7 @@ void fragment() {
 
             float falloff = 1.0 - (directional_dist / u_headlight_range);
 
-            float light_falloff = pow(falloff, 4.0);
+            float light_falloff = pow(falloff, 2.5);
 
             total_light_contribution += light_falloff * u_headlight_intensity;
         }

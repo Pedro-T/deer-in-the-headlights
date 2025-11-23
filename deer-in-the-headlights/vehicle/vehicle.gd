@@ -8,6 +8,7 @@ class_name Vehicle extends Area2D
 @export var speed: float = 200.00 # pixels per second
 @export var move_direction: int = 1 # 1 for right, 0 for left
 var animation_name: String = ""
+var headlight_offset: float = 0
 
 func setup(_sprite_frames: SpriteFrames, _animation_name: String, _move_direction: int, _speed: float) -> void:
 	sprite_frames = _sprite_frames
@@ -27,6 +28,7 @@ func _ready() -> void:
 
 	# use the height size from the resource metadata if available or just sprite y height
 	var sprite_size: Vector2 = sprite.sprite_frames.get_frame_texture(animation_name, 0).get_size()
+	headlight_offset = sprite_size.x / 2 + 5
 	var meta_height: Variant = sprite_frames.get_meta("hitbox_height", sprite_size.y)
 	var height: float = meta_height if meta_height is float else sprite_size.y
 	collision_shape.shape.size = Vector2(sprite_size.x, height)

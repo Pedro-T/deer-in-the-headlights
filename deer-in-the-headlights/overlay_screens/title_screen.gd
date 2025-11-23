@@ -18,7 +18,7 @@ func stop_animation() -> void:
     $TitleCar.stop()
 
 func _on_instructions_button_pressed() -> void:
-    $InstructionsPopup.popup()# Replace with function body.
+    $InstructionsPopup.popup()
 
 func _on_credits_button_pressed() -> void:
     $CreditsPopup.popup()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://bp61fiomhwsy8"]
+[gd_scene load_steps=25 format=4 uid="uid://bp61fiomhwsy8"]
 
 [ext_resource type="TileSet" uid="uid://c4yumyregri21" path="res://stage/tiles/stage_tiles.tres" id="1_glv2v"]
 [ext_resource type="Script" uid="uid://b8mu1jcyysejf" path="res://main.gd" id="1_uu6xs"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d1po75xlbba11" path="res://player/Player.tscn" id="3_r0du0"]
 [ext_resource type="Texture2D" uid="uid://cq618thcflnhw" path="res://stage/detail_background/pine_tree.png" id="3_wkp8b"]
 [ext_resource type="Texture2D" uid="uid://crqlae4p2dfho" path="res://stage/detail_background/grass_tuft.png" id="4_20pc6"]
+[ext_resource type="PackedScene" uid="uid://1rc7m7uqg837" path="res://stage/BlockerSmall.tscn" id="4_fpfj3"]
 [ext_resource type="Texture2D" uid="uid://cu6vi17c5jt5s" path="res://hunter/sprites/bush.png" id="5_c6i3y"]
 [ext_resource type="PackedScene" uid="uid://et1e86pvhcod" path="res://stage/gutter/VehicleGutter.tscn" id="6_lgr22"]
 [ext_resource type="PackedScene" uid="uid://ck3w8a1qo2gwx" path="res://stage/traffic/VehicleSpawnController.tscn" id="6_trn2v"]
@@ -23,6 +24,15 @@ size = Vector2(318, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fos0i"]
 resource_local_to_scene = true
 size = Vector2(312, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpfj3"]
+size = Vector2(768, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sc1dx"]
+size = Vector2(8, 520)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjvhd"]
+size = Vector2(8, 520)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wkp8b"]
 size = Vector2(100, 20)
@@ -59,13 +69,15 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAIAAAABAAAAAAAAAAIAAAACAAAAAAAAAAI
 tile_set = ExtResource("1_glv2v")
 
 [node name="RoadDetail" type="TileMapLayer" parent="Stage"]
-tile_map_data = PackedByteArray("AAAAAAEAAAAEAAAAAAABAAEAAAAEAAAAAAACAAEAAAAEAAAAAAADAAEAAAAEAAAAAAAEAAEAAAADAAAAABAFAAEAAAACAAAAAAAGAAEAAAACAAAAAAAHAAEAAAADAAAAAAAIAAEAAAAEAAAAAAAJAAEAAAAEAAAAAAAKAAEAAAAEAAAAAAALAAEAAAAEAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAEAAAAEAAAAAAABAAEAAAAEAAAAAAACAAEAAAAEAAAAAAADAAEAAAAEAAAAAAAEAAEAAAADAAAAABAFAAEAAAACAAAAAAAGAAEAAAACAAAAAAAHAAEAAAADAAAAAAAIAAEAAAAEAAAAAAAJAAEAAAAEAAAAAAAKAAEAAAAEAAAAAAALAAEAAAAEAAAAAAAAAAoAAAAFAAAAAAABAAoAAAAFAAAAAAACAAoAAAAFAAAAAAADAAoAAAAFAAAAAAAEAAoAAAAFAAAAAAAFAAoAAAAFAAAAAAAGAAoAAAAFAAAAAAAHAAoAAAAFAAAAAAAIAAoAAAAFAAAAAAAJAAoAAAAFAAAAAAAKAAoAAAAFAAAAAAALAAoAAAAFAAAAAAAAAAUAAAAFAAAAAAADAAUAAAAFAAAAAAAEAAUAAAAFAAAAAAAIAAUAAAAFAAAAAAAJAAUAAAAFAAAAAAALAAUAAAAFAAAAAAAHAAYAAAAEAAAAAAABAAYAAAAEAAAAAAACAAYAAAAEAAAAAAADAAYAAAAEAAAAAAAFAAYAAAAEAAAAAAAGAAYAAAAEAAAAAAAKAAYAAAAEAAAAAAAJAAYAAAAEAAAAAAA=")
 tile_set = ExtResource("1_glv2v")
 
 [node name="WorldColliders" type="Node" parent="Stage"]
 
 [node name="NoGoArea" parent="Stage/WorldColliders" instance=ExtResource("3_cm0pq")]
 position = Vector2(-48, 112)
+collision_layer = 1
+collision_mask = 2
 
 [node name="CollisionShape2D" parent="Stage/WorldColliders/NoGoArea" index="0"]
 position = Vector2(207, 0)
@@ -73,10 +85,77 @@ shape = SubResource("RectangleShape2D_cm0pq")
 
 [node name="NoGoArea2" parent="Stage/WorldColliders" instance=ExtResource("3_cm0pq")]
 position = Vector2(10, 111)
+collision_layer = 1
+collision_mask = 2
 
 [node name="CollisionShape2D" parent="Stage/WorldColliders/NoGoArea2" index="0"]
 position = Vector2(602, 0)
 shape = SubResource("RectangleShape2D_fos0i")
+
+[node name="BlockerSmall" parent="Stage/WorldColliders" instance=ExtResource("4_fpfj3")]
+position = Vector2(96, 440)
+
+[node name="BlockerSmall2" parent="Stage/WorldColliders" instance=ExtResource("4_fpfj3")]
+position = Vector2(160, 440)
+
+[node name="BlockerSmall3" parent="Stage/WorldColliders" instance=ExtResource("4_fpfj3")]
+position = Vector2(224, 440)
+
+[node name="BlockerSmall4" parent="Stage/WorldColliders" instance=ExtResource("4_fpfj3")]
+position = Vector2(352, 440)
+
+[node name="BlockerSmall5" parent="Stage/WorldColliders" instance=ExtResource("4_fpfj3")]
+position = Vector2(416, 440)
+
+[node name="BlockerSmall6" parent="Stage/WorldColliders" instance=ExtResource("4_fpfj3")]
+position = Vector2(480, 440)
+
+[node name="BlockerSmall7" parent="Stage/WorldColliders" instance=ExtResource("4_fpfj3")]
+position = Vector2(608, 440)
+
+[node name="BlockerSmall8" parent="Stage/WorldColliders" instance=ExtResource("4_fpfj3")]
+position = Vector2(672, 440)
+
+[node name="BlockerSmall9" parent="Stage/WorldColliders" instance=ExtResource("4_fpfj3")]
+position = Vector2(736, 328)
+
+[node name="BlockerSmall10" parent="Stage/WorldColliders" instance=ExtResource("4_fpfj3")]
+position = Vector2(608, 328)
+
+[node name="BlockerSmall11" parent="Stage/WorldColliders" instance=ExtResource("4_fpfj3")]
+position = Vector2(544, 328)
+
+[node name="BlockerSmall12" parent="Stage/WorldColliders" instance=ExtResource("4_fpfj3")]
+position = Vector2(288, 328)
+
+[node name="BlockerSmall13" parent="Stage/WorldColliders" instance=ExtResource("4_fpfj3")]
+position = Vector2(224, 328)
+
+[node name="BlockerSmall14" parent="Stage/WorldColliders" instance=ExtResource("4_fpfj3")]
+position = Vector2(32, 328)
+
+[node name="SouthBoundary" type="StaticBody2D" parent="Stage/WorldColliders"]
+position = Vector2(384, 648)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage/WorldColliders/SouthBoundary"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_fpfj3")
+
+[node name="WestBoundary" type="StaticBody2D" parent="Stage/WorldColliders"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage/WorldColliders/WestBoundary"]
+position = Vector2(-4, 380)
+shape = SubResource("RectangleShape2D_sc1dx")
+
+[node name="EastBoundary" type="StaticBody2D" parent="Stage/WorldColliders"]
+position = Vector2(768, 384)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage/WorldColliders/EastBoundary"]
+position = Vector2(4, -4)
+shape = SubResource("RectangleShape2D_kjvhd")
 
 [node name="PlayerContainer" type="Node" parent="Stage"]
 
@@ -390,12 +469,11 @@ texture = ExtResource("5_c6i3y")
 position = Vector2(600, 688)
 texture = ExtResource("5_c6i3y")
 
-[node name="ForegroundRenderOver" type="TileMapLayer" parent="Stage"]
-
 [node name="Triggers" type="Node" parent="Stage"]
 
 [node name="GameSuccessTrigger" type="Area2D" parent="Stage/Triggers"]
 position = Vector2(384, 88)
+collision_mask = 2
 script = ExtResource("10_20pc6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stage/Triggers/GameSuccessTrigger"]

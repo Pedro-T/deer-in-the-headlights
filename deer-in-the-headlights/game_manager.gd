@@ -9,6 +9,7 @@ var screens: Screens
 var player: Player
 var hunter: Hunter
 var night_canvas: ColorRect
+var blocker_vehicle: Node2D
 var shader_material: ShaderMaterial
 var car_data: PackedVector3Array = []
 var night_mode: bool = true
@@ -60,12 +61,14 @@ func _update_timer_display() -> void:
 
 func start() -> void:
     night_canvas.visible = night_mode
+    blocker_vehicle.reset()
     player.intro()
     hunter.assign_target(player)
     vehicle_spawner.start()
     game_timer.start()
     firing_timer.start()
     state = GameState.PLAY
+    get_tree().create_timer(17).connect("timeout", func() -> void: blocker_vehicle.moving = true)
 
 func game_over(ending: GameEnding) -> void:
     if state == GameState.END:

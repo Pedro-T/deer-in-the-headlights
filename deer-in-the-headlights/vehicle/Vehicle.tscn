@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://6plrihs40fr2"]
+[gd_scene load_steps=6 format=3 uid="uid://6plrihs40fr2"]
 
 [ext_resource type="Script" uid="uid://cpo0r8dk0s8g4" path="res://vehicle/vehicle.gd" id="1_gh616"]
 [ext_resource type="SpriteFrames" uid="uid://cq8ciqxel8e18" path="res://vehicle/animations/car_hatch_red.tres" id="2_gh616"]
+[ext_resource type="Texture2D" uid="uid://phlvao5vih6f" path="res://stage/night_mask/beam.png" id="3_jkabe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7aos"]
 resource_local_to_scene = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jkabe"]
+blend_mode = 1
 
 [node name="Vehicle" type="Area2D"]
 collision_mask = 2
@@ -17,5 +21,17 @@ shape = SubResource("RectangleShape2D_w7aos")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_gh616")
 animation = &"L_rain"
+
+[node name="HeadlightBeam" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("CanvasItemMaterial_jkabe")
+position = Vector2(-141, 9)
+texture = ExtResource("3_jkabe")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+z_index = 1
+position = Vector2(-137, 10)
+color = Color(1, 1, 0.5803922, 1)
+texture = ExtResource("3_jkabe")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

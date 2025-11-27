@@ -28,7 +28,7 @@ func _ready() -> void:
 
 	# use the height size from the resource metadata if available or just sprite y height
 	var sprite_size: Vector2 = sprite.sprite_frames.get_frame_texture(animation_name, 0).get_size()
-	headlight_offset = sprite_size.x / 2 + 1
+	headlight_offset = sprite_size.x / 2 - 5
 	var meta_height: Variant = sprite_frames.get_meta("hitbox_height", sprite_size.y)
 	var height: float = meta_height if meta_height is float else sprite_size.y
 	collision_shape.shape.size = Vector2(sprite_size.x, height)
@@ -36,6 +36,15 @@ func _ready() -> void:
 	sprite.play(animation_name)
 
 	position = position + Vector2(0, randi_range(-20, 0)) # shift the cars around a little so they're not perfectly in line every time
+
+	_position_headlight_beam()
+
+func _position_headlight_beam() -> void:
+	var beam: PointLight2D = $HeadlightBeam
+	var beam_dims: Vector2 = beam.texture.get_size()
+
+	beam.position += Vector2(headlight_offset * move_direction + beam_dims.x / 2 * move_direction, 0)
+	beam.scale.x = -move_direction * beam.scale.x
 
 func _process(delta: float) -> void:
 	position.x += speed * delta * move_direction

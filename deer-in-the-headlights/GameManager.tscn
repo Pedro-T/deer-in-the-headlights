@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcbdmywrkma2e"]
+
+[ext_resource type="Script" uid="uid://cu2583awnd0bi" path="res://game_manager.gd" id="1_p13vs"]
+[ext_resource type="AudioStream" uid="uid://bo5tbmugsvbgi" path="res://general_audio/crash_sound.mp3" id="2_aelf4"]
+
+[node name="GameManager" type="Node"]
+script = ExtResource("1_p13vs")
+
+[node name="CrashEffectPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_aelf4")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]

@@ -11,6 +11,7 @@ var hunter: Hunter
 var night_canvas: CanvasModulate
 var blocker_vehicle: Node2D
 var weather: Node
+var hunter_truck: Node
 var night_mode: bool = true
 
 const MAX_CARS: int = 60 # for headlight calc
@@ -37,6 +38,8 @@ func start() -> void:
     vehicle_spawner.start()
     game_timer.start()
     firing_timer.start()
+    hunter_truck.toggle_lights()
+
     state = GameState.PLAY
     get_tree().create_timer(17).connect("timeout", func() -> void: blocker_vehicle.moving = true)
     weather.start()
@@ -48,6 +51,7 @@ func game_over(ending: GameEnding) -> void:
     if ending == GameEnding.RUN_OVER:
         $CrashEffectPlayer.play()
     info_label.text = "ESCAPED" if ending == GameEnding.ESCAPED else "DEAD"
+    hunter_truck.toggle_lights()
     _halt_spawns()
     weather.stop()
     game_timer.stop()

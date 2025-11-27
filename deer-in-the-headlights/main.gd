@@ -10,4 +10,5 @@ func _ready() -> void:
     GameManager.hunter = $"Stage/Hunter-Bush"
     GameManager.night_canvas = $Stage/Nighttime
     GameManager.blocker_vehicle = $Stage/BlockingVehicle
+    GameManager.weather = $Stage/Weather
     GameManager.setup()

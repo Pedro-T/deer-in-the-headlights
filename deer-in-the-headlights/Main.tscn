@@ -514,8 +514,13 @@ position = Vector2(384, 704)
 [node name="Weather" type="Node" parent="Stage"]
 script = ExtResource("15_sc1dx")
 
+[node name="LightingDelayTimer" type="Timer" parent="Stage/Weather"]
+wait_time = 4.0
+one_shot = true
+
 [node name="RainParticles" type="CPUParticles2D" parent="Stage/Weather"]
 position = Vector2(384, 0)
+emitting = false
 amount = 200
 lifetime = 4.0
 emission_shape = 3

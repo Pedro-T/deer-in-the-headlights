@@ -473,6 +473,24 @@ shape = SubResource("RectangleShape2D_wkp8b")
 [node name="Hunter-Bush" parent="Stage" instance=ExtResource("11_5vvyt")]
 position = Vector2(384, 704)
 
+[node name="Weather" type="Node" parent="Stage"]
+
+[node name="RainParticles" type="CPUParticles2D" parent="Stage/Weather"]
+position = Vector2(384, 0)
+amount = 200
+lifetime = 4.0
+emission_shape = 3
+emission_rect_extents = Vector2(384, 1)
+direction = Vector2(0.2, 1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 200.0
+
+[node name="RainSound" type="AudioStreamPlayer" parent="Stage/Weather"]
+
+[node name="ThunderSound" type="AudioStreamPlayer" parent="Stage/Weather"]
+
 [node name="Nighttime" type="CanvasModulate" parent="Stage"]
 visible = false
 color = Color(0.07058824, 0.09411765, 0.1254902, 0.92156863)

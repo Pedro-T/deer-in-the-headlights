@@ -18,6 +18,10 @@ func _process(delta: float) -> void:
         moving = false
         visible = false    
 
+func clear() -> void:
+    moving = false
+    visible = false
+
 func _reset() -> void:
     position = RESET_POS
 

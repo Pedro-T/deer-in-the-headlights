@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://b2ygqdtt7woe8"]
+
+[ext_resource type="Script" uid="uid://g53xqm6j5moq" path="res://vehicle/tractor.gd" id="1_ipdag"]
+[ext_resource type="Texture2D" uid="uid://w1yhit2448t5" path="res://vehicle/sprites/tractor.png" id="1_pujy6"]
+[ext_resource type="Texture2D" uid="uid://phlvao5vih6f" path="res://stage/night_mask/beam.png" id="2_ipdag"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yff3a"]
+atlas = ExtResource("1_pujy6")
+region = Rect2(0, 0, 101, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15yc5"]
+atlas = ExtResource("1_pujy6")
+region = Rect2(101, 0, 101, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpy1t"]
+atlas = ExtResource("1_pujy6")
+region = Rect2(202, 0, 101, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mkxi"]
+atlas = ExtResource("1_pujy6")
+region = Rect2(303, 0, 101, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvekm"]
+atlas = ExtResource("1_pujy6")
+region = Rect2(404, 0, 101, 102)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rjswx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yff3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15yc5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpy1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mkxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvekm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0olhw"]
+size = Vector2(18, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_86qio"]
+size = Vector2(64.5, 36.5)
+
+[node name="Tractor" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_ipdag")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rjswx")
+autoplay = "default"
+
+[node name="ColliderMower" type="CollisionShape2D" parent="."]
+position = Vector2(40, 0)
+shape = SubResource("RectangleShape2D_0olhw")
+
+[node name="ColliderBody" type="CollisionShape2D" parent="."]
+position = Vector2(-16.25, -2.25)
+shape = SubResource("RectangleShape2D_86qio")
+
+[node name="LightFront" type="PointLight2D" parent="."]
+position = Vector2(-144, 0)
+texture = ExtResource("2_ipdag")
+
+[node name="LightRear" type="PointLight2D" parent="."]
+position = Vector2(112, 0)
+scale = Vector2(-1, -1)
+texture = ExtResource("2_ipdag")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

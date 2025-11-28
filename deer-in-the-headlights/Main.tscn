@@ -576,7 +576,12 @@ color = Color(0.5569867, 0.9994206, 0.99999994, 0)
 visible = false
 color = Color(0.07058824, 0.09411765, 0.1254902, 0.92156863)
 
-[node name="InfoLabel" type="Label" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="InfoLabel" type="Label" parent="CanvasLayer"]
+z_index = 2
+z_as_relative = false
 offset_right = 768.0
 offset_bottom = 64.0
 text = "Time!"

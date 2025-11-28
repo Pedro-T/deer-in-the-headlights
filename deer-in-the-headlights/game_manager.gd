@@ -41,6 +41,7 @@ func start() -> void:
     firing_timer.start()
     hunter_truck.toggle_lights()
     stage.start_all()
+    info_label.visible = true
 
     state = GameState.PLAY
     get_tree().create_timer(17).connect("timeout", func() -> void: blocker_vehicle.moving = true)
@@ -61,6 +62,7 @@ func game_over(ending: GameEnding) -> void:
     firing_timer.stop()
     
     night_canvas.visible = false
+    info_label.visible = false
 
 func trigger_shot() -> void:
     hunter.fire()

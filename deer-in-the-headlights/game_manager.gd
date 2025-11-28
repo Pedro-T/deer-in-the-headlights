@@ -13,6 +13,7 @@ var blocker_vehicle: Node2D
 var weather: Node
 var hunter_truck: Node
 var night_mode: bool = true
+var stage: Node
 
 const MAX_CARS: int = 60 # for headlight calc
 
@@ -39,6 +40,7 @@ func start() -> void:
     game_timer.start()
     firing_timer.start()
     hunter_truck.toggle_lights()
+    stage.start()
 
     state = GameState.PLAY
     get_tree().create_timer(17).connect("timeout", func() -> void: blocker_vehicle.moving = true)

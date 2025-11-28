@@ -19,3 +19,10 @@ func reset() -> void:
     moving = false
     move_total = false
     position = Vector2(410, 95)
+    $Timer.start()
+
+func kill_timer() -> void:
+    $Timer.stop()
+
+func _on_timer_timeout() -> void:
+    moving = true

@@ -44,7 +44,6 @@ func start() -> void:
     info_label.visible = true
 
     state = GameState.PLAY
-    get_tree().create_timer(17).connect("timeout", func() -> void: blocker_vehicle.moving = true)
     weather.start()
 
 func game_over(ending: GameEnding) -> void:
@@ -57,6 +56,7 @@ func game_over(ending: GameEnding) -> void:
     hunter_truck.toggle_lights()
     screens.show_game_over(ending)
     _clear_stage()
+    blocker_vehicle.kill_timer()
     weather.stop()
     game_timer.stop()
     firing_timer.stop()

@@ -40,7 +40,7 @@ func start() -> void:
     game_timer.start()
     firing_timer.start()
     hunter_truck.toggle_lights()
-    stage.start()
+    stage.start_all()
 
     state = GameState.PLAY
     get_tree().create_timer(17).connect("timeout", func() -> void: blocker_vehicle.moving = true)

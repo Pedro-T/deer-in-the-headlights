@@ -54,6 +54,7 @@ size = Vector2(18, 96)
 size = Vector2(64.5, 36.5)
 
 [node name="Tractor" type="Area2D"]
+collision_mask = 2
 script = ExtResource("1_ipdag")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
@@ -76,3 +77,5 @@ texture = ExtResource("2_ipdag")
 position = Vector2(112, 0)
 scale = Vector2(-1, -1)
 texture = ExtResource("2_ipdag")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

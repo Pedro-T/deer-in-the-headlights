@@ -27,3 +27,6 @@ func start() -> void:
     moving = true
     $Sprite.play()
 
+func _on_body_entered(body: Node2D) -> void:
+    if body is Player:
+        GameManager.game_over(GameManager.GameEnding.RUN_OVER)

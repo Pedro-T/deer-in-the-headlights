@@ -32,7 +32,7 @@ func _update_timer_display() -> void:
     info_label.text = "%02d" % time
 
 func start() -> void:
-    night_canvas.visible = night_mode
+    #night_canvas.visible = night_mode
     blocker_vehicle.reset()
     player.intro()
     hunter.assign_target(player)
@@ -40,11 +40,10 @@ func start() -> void:
     game_timer.start()
     firing_timer.start()
     hunter_truck.toggle_lights()
-    stage.start_all()
+    stage.start_all(night_mode)
     info_label.visible = true
-
     state = GameState.PLAY
-    weather.start()
+    
 
 func game_over(ending: GameEnding) -> void:
     if state == GameState.END:

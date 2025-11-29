@@ -14,7 +14,10 @@ A short game about a deer trapped on the freeway trying to get out. Work in prog
 - There is a twenty second timer. If it expires before you reach the exit, you lose!
 - The exit is not available from the start!
 
-## Credits
-- This project leverages the Godot game engine v4.5.x. [License](https://godotengine.org/license/)
-- Deer sprite/animations adapted from AntumDeluge's rework of CalciumTrice's deer sprite under [CC-BY 3.0](https://creativecommons.org/licenses/by/3.0/). Original on [OpenGameArt](https://opengameart.org/node/107096)
-- All repository code and all art not listed above by Pedro Teixeira. All rights reserved.
+## Attributions
+- Godot Engine © Juan Linietsky, Ariel Manzur, Godot contributors.
+- Deer sprite/animations adapted from AntumDeluge's rework of CalciumTrice's deer sprite under CC-BY 3.0 / https://opengameart.org/node/107096
+- Pine tree sprite by isaiah658 released under CC0 / https://opengameart.org/content/pine-tree-16x16
+- Gunshot sound from Mike Koenig (Soundbible) - retrieved from OpenGameArt under CC-BY 3.0 / https://opengameart.org/content/shotgun-shoot-reload
+- Crash effect sound by pixabay user u_mgq59j5ayf
+- All gameplay code and other art by Pedro Teixeira

@@ -53,8 +53,10 @@ func game_over(ending: GameEnding) -> void:
     if ending == GameEnding.RUN_OVER:
         $CrashEffectPlayer.play()
     info_label.text = "ESCAPED" if ending == GameEnding.ESCAPED else "DEAD"
-    hunter_truck.toggle_lights()
+    player.hide()
+    #hunter_truck.toggle_lights()
     screens.show_game_over(ending)
+    await screens.transition_up
     _clear_stage()
     blocker_vehicle.kill_timer()
     weather.stop()

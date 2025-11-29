@@ -14,6 +14,7 @@ var state: PlayerState = PlayerState.IDLE_SOUTH
 
 func intro() -> void:
     position = SPAWN_POSITION
+    show()
 
 @warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:

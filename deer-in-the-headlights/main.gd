@@ -5,7 +5,7 @@ func _ready() -> void:
     GameManager.info_label = $CanvasLayer/InfoLabel
     GameManager.game_timer = $GameTimer
     GameManager.firing_timer = $FiringTimer
-    GameManager.screens = $Screens
+    GameManager.screens = $CanvasLayer/Screens
     GameManager.player = $Stage/PlayerContainer/Player
     GameManager.hunter = $"Stage/Hunter-Bush"
     GameManager.night_canvas = $Stage/Nighttime

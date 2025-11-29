@@ -589,7 +589,7 @@ label_settings = SubResource("LabelSettings_lgr22")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Screens" parent="." instance=ExtResource("8_trn2v")]
+[node name="Screens" parent="CanvasLayer" instance=ExtResource("8_trn2v")]
 
 [connection signal="body_entered" from="Stage/Triggers/GameSuccessTrigger" to="Stage/Triggers/GameSuccessTrigger" method="_on_body_entered"]
 

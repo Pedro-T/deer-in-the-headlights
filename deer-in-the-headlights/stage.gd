@@ -11,12 +11,14 @@ func night() -> void:
     night_mask.visible = true
 
 func start_all(is_night: bool) -> void:
+    weather.start()
     @warning_ignore("standalone_ternary")
     night() if is_night else day()
     $Tractor.start()
     $Tractor2.start()
 
 func reset() -> void:
+    weather.stop()
     $Tractor.clear()
     $Tractor2.clear()
     for n in $VehicleContainer/VehicleSpawnController.get_children():

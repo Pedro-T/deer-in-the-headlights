@@ -60,7 +60,8 @@ offset_left = 192.0
 offset_top = 192.0
 offset_right = 576.0
 offset_bottom = 256.0
-text = "A short game about a deer trying to escape its fate"
+text = "A short game about a deer trying to escape"
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="InstructionsPopup" type="AcceptDialog" parent="."]

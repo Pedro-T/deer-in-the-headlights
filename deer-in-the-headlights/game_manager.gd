@@ -8,14 +8,10 @@ var state: GameState = GameState.PLAY
 var screens: Screens
 var player: Player
 var hunter: Hunter
-var night_canvas: CanvasModulate
 var blocker_vehicle: Node2D
-var weather: Node
 var hunter_truck: Node
 var night_mode: bool = true
 var stage: Node
-
-const MAX_CARS: int = 60 # for headlight calc
 
 func setup() -> void:
     game_timer.timeout.connect(game_over.bind(GameEnding.SHOT))
@@ -32,7 +28,6 @@ func _update_timer_display() -> void:
     info_label.text = "%02d" % time
 
 func start() -> void:
-    night_canvas.visible = night_mode
     blocker_vehicle.reset()
     player.intro()
     hunter.assign_target(player)
@@ -40,11 +35,10 @@ func start() -> void:
     game_timer.start()
     firing_timer.start()
     hunter_truck.toggle_lights()
-    stage.start_all()
-
+    stage.start_all(night_mode)
+    info_label.visible = true
     state = GameState.PLAY
-    get_tree().create_timer(17).connect("timeout", func() -> void: blocker_vehicle.moving = true)
-    weather.start()
+    
 
 func game_over(ending: GameEnding) -> void:
     if state == GameState.END:
@@ -53,14 +47,14 @@ func game_over(ending: GameEnding) -> void:
     if ending == GameEnding.RUN_OVER:
         $CrashEffectPlayer.play()
     info_label.text = "ESCAPED" if ending == GameEnding.ESCAPED else "DEAD"
-    hunter_truck.toggle_lights()
+    player.hide()
     screens.show_game_over(ending)
+    await screens.transition_up
     _clear_stage()
-    weather.stop()
+    blocker_vehicle.kill_timer()
     game_timer.stop()
     firing_timer.stop()
-    
-    night_canvas.visible = false
+    info_label.visible = false
 
 func trigger_shot() -> void:
     hunter.fire()

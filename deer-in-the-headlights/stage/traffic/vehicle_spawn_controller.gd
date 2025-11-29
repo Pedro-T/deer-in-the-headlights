@@ -18,11 +18,10 @@ func _ready() -> void:
         _load_animations()
 
 func _load_animations() -> void:
-    var directory: DirAccess = DirAccess.open(ANIMATIONS_PATH)
-    for file in directory.get_files():
+    for file: String in ResourceLoader.list_directory(ANIMATIONS_PATH):
         if not file.ends_with(".tres"):
             continue
-        var anim: SpriteFrames = load(ANIMATIONS_PATH + "/" + file)
+        var anim: SpriteFrames = load(ANIMATIONS_PATH.path_join(file))
         if anim:
             animations.append(anim)
 

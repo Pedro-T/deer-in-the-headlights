@@ -4,10 +4,12 @@ var title_scene: PackedScene = preload("res://overlay_screens/TitleScreen.tscn")
 var game_over_success_scene: PackedScene = preload("res://overlay_screens/GameOverScreenSuccess.tscn")
 var game_over_runover_scene: PackedScene = preload("res://overlay_screens/GameOverRoadkillScreen.tscn")
 var game_over_hunted_scene: PackedScene = preload("res://overlay_screens/GameOverHuntedScreen.tscn")
+signal transition_up
 
 func show_game_over(ending: GameManager.GameEnding) -> void:
     $AnimationPlayer.play("mask_up")
     await $AnimationPlayer.animation_finished
+    transition_up.emit()
     var screen: Node2D
     match ending:
         GameManager.GameEnding.ESCAPED:

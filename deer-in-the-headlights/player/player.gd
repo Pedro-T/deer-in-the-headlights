@@ -1,7 +1,7 @@
 class_name Player extends CharacterBody2D
 
-const MOVE_SPEED: float = 256.0 # pixels per second
-const SPAWN_POSITION: Vector2 = Vector2(376, 392)
+const MOVE_SPEED: float = 80.0 # pixels per second
+const SPAWN_POSITION: Vector2 = Vector2(620, 620)
 const STATE_DOWNGRADE_MAP: Dictionary = {
     PlayerState.RUN_NORTH: PlayerState.IDLE_NORTH,
     PlayerState.RUN_EAST: PlayerState.IDLE_EAST,
@@ -12,11 +12,9 @@ const STATE_DOWNGRADE_MAP: Dictionary = {
 
 var state: PlayerState = PlayerState.IDLE_SOUTH
 
-func _ready() -> void:
-    pass
-
 func intro() -> void:
     position = SPAWN_POSITION
+    show()
 
 @warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:

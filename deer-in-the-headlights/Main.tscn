@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://bp61fiomhwsy8"]
+[gd_scene load_steps=34 format=4 uid="uid://bp61fiomhwsy8"]
 
 [ext_resource type="TileSet" uid="uid://c4yumyregri21" path="res://stage/tiles/stage_tiles.tres" id="1_glv2v"]
 [ext_resource type="Script" uid="uid://b8mu1jcyysejf" path="res://main.gd" id="1_uu6xs"]
@@ -16,11 +16,12 @@
 [ext_resource type="Script" uid="uid://cbohi6db1o0sh" path="res://game_success_trigger.gd" id="10_20pc6"]
 [ext_resource type="PackedScene" uid="uid://caiapp8k6gcx8" path="res://hunter/Hunter.tscn" id="11_5vvyt"]
 [ext_resource type="Script" uid="uid://ddsbdnm4pg2md" path="res://hunter_truck.gd" id="14_2gh4u"]
-[ext_resource type="Texture2D" uid="uid://phlvao5vih6f" path="res://stage/night_mask/beam.png" id="14_5tuhn"]
+[ext_resource type="Texture2D" uid="uid://phlvao5vih6f" path="res://vehicle/sprites/beam.png" id="14_5tuhn"]
 [ext_resource type="PackedScene" uid="uid://dg24wyfhb68mq" path="res://stage/BlockingVehicle.tscn" id="14_sc1dx"]
 [ext_resource type="Script" uid="uid://b4b7drov6i7bn" path="res://weather.gd" id="15_sc1dx"]
 [ext_resource type="Texture2D" uid="uid://uj41l0evj5ds" path="res://vehicle/sprites/pickup_truck_deer.png" id="16_2gh4u"]
 [ext_resource type="AudioStream" uid="uid://cuvdm5r5njw3o" path="res://general_audio/rain.wav" id="16_kjvhd"]
+[ext_resource type="Texture2D" uid="uid://ds3p07fs7rf8b" path="res://stage/weather/raindrop.png" id="21_bg4s2"]
 [ext_resource type="PackedScene" uid="uid://b2ygqdtt7woe8" path="res://vehicle/Tractor.tscn" id="22_bg4s2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cm0pq"]
@@ -545,6 +546,7 @@ one_shot = true
 position = Vector2(384, 0)
 emitting = false
 amount = 200
+texture = ExtResource("21_bg4s2")
 lifetime = 4.0
 emission_shape = 3
 emission_rect_extents = Vector2(384, 1)
@@ -564,7 +566,6 @@ libraries = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="Stage/Weather/LightningAnimation"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -574,9 +575,14 @@ color = Color(0.5569867, 0.9994206, 0.99999994, 0)
 
 [node name="Nighttime" type="CanvasModulate" parent="Stage"]
 visible = false
-color = Color(0.07058824, 0.09411765, 0.1254902, 0.92156863)
+color = Color(0.07058824, 0.09411765, 0.1254902, 0.8352941)
 
-[node name="InfoLabel" type="Label" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="InfoLabel" type="Label" parent="CanvasLayer"]
+z_index = 2
+z_as_relative = false
 offset_right = 768.0
 offset_bottom = 64.0
 text = "Time!"
@@ -584,7 +590,7 @@ label_settings = SubResource("LabelSettings_lgr22")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Screens" parent="." instance=ExtResource("8_trn2v")]
+[node name="Screens" parent="CanvasLayer" instance=ExtResource("8_trn2v")]
 
 [connection signal="body_entered" from="Stage/Triggers/GameSuccessTrigger" to="Stage/Triggers/GameSuccessTrigger" method="_on_body_entered"]
 

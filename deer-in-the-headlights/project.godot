@@ -29,6 +29,7 @@ gdscript/warnings/unsafe_call_argument=1
 
 window/size/viewport_width=768
 window/size/viewport_height=768
+window/stretch/mode="viewport"
 
 [input]
 
